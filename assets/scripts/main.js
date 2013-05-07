@@ -4,7 +4,7 @@
 	var $body = $('body'),
 		$button = $('#theme'),
 		dark = $button.text(),
-		light = 'Switch to Dark';
+		light = dark.replace('Light', 'Dark');
 	function toggleTheme() {
 		$body.toggleClass('light dark');
 		var text = $body.hasClass('light') ? light : dark;

@@ -7,26 +7,40 @@
 	so alias one as rootsGrid.
 
 */ 
-
 rootsGrid = grid
 
-/*! Roots reset */
+/*! Roots Mixins */
 global-reset()
-
+headers()
+lists()
 //debug()
-
-/*! Fluidity normalize, type, grid, and CSS3 */
-@import "fluidity"
 
 /*! Solarized color theme */
 @import "solarized"
 
+font-color = solarized_base0
+
+/*! Roots with colors from solarized */
+base()
+text-selection(lighten(solarized_cyan, 60%))
+
+/*! Fluidity normalize, type, grid, and CSS3 */
+
+@import "fluidity"
+/*
+@import "fluidity/normalize"
+@import "fluidity/type"
+@import "fluidity/semantic-grid"
+@import "fluidity/css3"
+*/
+
+
+
 /*! Base styles for Responsive Setup */
 
 pageMinWidth = 480px
-responsiveBreakpoint = 840px
+responsiveBreakpoint = 820px
 responsiveMedia = 'screen and (max-width:'+responsiveBreakpoint+')'
-
 
 body
 	min-width pageMinWidth
@@ -39,15 +53,6 @@ body
 		#current, #planned
 			grid-space(50%)
 
-@media responsiveMedia
-	body
-		min-width (responsiveBreakpoint/2)
-	#wrapper
-		grid(100%, (responsiveBreakpoint/2))
-		#features
-			#current, #planned
-				grid-space(100%)
-
 #footer
 	text-align center
 
@@ -55,3 +60,12 @@ a.github
 	position absolute
 	right 0
 	top 0
+
+@media responsiveMedia
+	body
+		min-width (responsiveBreakpoint / 2)
+	#wrapper
+		grid(100%, (responsiveBreakpoint / 2))
+		#features
+			#current, #planned
+				grid-space(100%)

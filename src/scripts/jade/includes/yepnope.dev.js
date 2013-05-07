@@ -23,9 +23,9 @@
 // Checks for online status, then attempts to download jQuery via CDN.
 // Then, it checks for jQuery and falls back to a local copy.
 //
-// ### Main Script
+// ### Scripts
 // 
-// Loads site payload. Logs complete message.
+// Loads individual site scipts. Logs complete message.
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -39,8 +39,8 @@ yepnope([{
         nope: '/assets/scripts/vendor/jquery.min.js'
       });
     }
-  },{ // ## Main Script
-    load: ['assets/scripts/main.min.js'],
+  },{ // ### Scripts
+    load: ['assets/scripts/main.js'],
     complete: function() {
       window.console && console.log && console.log('All scripts loaded.');
     }
