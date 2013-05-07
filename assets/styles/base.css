@@ -1,3 +1,14 @@
+/* Roots reset */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,caption,tbody,tfoot,thead,tr,th,td{font-weight:inherit;font-style:inherit;font-family:inherit;font-size:100%;vertical-align:baseline;margin:0;padding:0;outline:0;border:none}
+body{line-height:1}
+ol,ul{list-style:none}
+table{border-collapse:separate;border-spacing:0;vertical-align:middle}
+caption,th,td{text-align:left;font-weight:normal;vertical-align:middle}
+a img{border:none}
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{margin:0;padding:0;border:none;outline:0;display:block}
+audio,canvas,video{display:inline-block;*display:inline;*zoom:1}
+audio:not([controls]),[hidden]{display:none}
+/* Fluidity normalize, type, grid, and CSS3 */
 article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block}
 audio,canvas,video{display:inline-block}
 audio:not([controls]){display:none;height:0}
@@ -69,6 +80,7 @@ dl{font-weight:normal;font-style:normal;font-size:100%;font-family:inherit;list-
 dl dt{font-weight:bold}
 dl dd{margin:20px 24px}
 header,footer,section{display:block;position:relative;float:left;width:100%;height:100%;margin:0;padding:0;clear:both}
+/* Solarized color theme */
 body,.dark{background-color:#002b36;color:#839496;}
 body *,.dark *{color:#839496}
 body h1,.dark h1,body h2,.dark h2,body h3,.dark h3,body h4,.dark h4,body h5,.dark h5,body h6,.dark h6{color:#93a1a1;border-color:#839496}
@@ -91,11 +103,12 @@ body button,body.dark button{font-size:13px;padding:9.945px 21.879px;-webkit-bor
 body button:hover,body.dark button:hover,body button:focus,body.dark button:focus{background-position:0 -9.945px;color:#474747;color:rgba(71,71,71,0.95);text-shadow:1px 1px 1px rgba(255,255,255,0.5)}
 body button:active,body.dark button:active{-webkit-box-shadow:inset 0 1px 5px rgba(97,112,114,0.6);-moz-box-shadow:inset 0 1px 5px rgba(97,112,114,0.6);-o-box-shadow:inset 0 1px 5px rgba(97,112,114,0.6);-ms-box-shadow:inset 0 1px 5px rgba(97,112,114,0.6);box-shadow:inset 0 1px 5px rgba(97,112,114,0.6);text-shadow:1px 1px 1px rgba(255,255,255,0.6);border-color:#6a7b7d}
 body button,body.dark button,body button:hover,body.dark button:hover{color:#6c71c4}
+/* Base styles for Responsive Setup */
 body{min-width:480px;position:relative;font-family:'Bitstream Vera Sans Mono', Consolas, Courier, monospace}
 #wrapper{position:relative;width:80%;min-width:480px;margin:0 auto;overflow:hidden;}
 #wrapper #features #current,#wrapper #features #planned{display:block;position:relative;float:left;height:100%;margin:0;padding:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-o-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box;width:50%}
-@media screen and (max-width:800px){body{min-width:800px/2}
-#wrapper{position:relative;width:100%;min-width:400px;margin:0 auto;overflow:hidden;}
+@media screen and (max-width:840px){body{min-width:420px}
+#wrapper{position:relative;width:100%;min-width:420px;margin:0 auto;overflow:hidden;}
 #wrapper #features #current,#wrapper #features #planned{display:block;position:relative;float:left;height:100%;margin:0;padding:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-o-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box;width:100%}
 }#footer{text-align:center}
 a.github{position:absolute;right:0;top:0}

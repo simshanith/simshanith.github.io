@@ -1,10 +1,32 @@
+/*
+	## Frameworks Note:
+
+	Grunt is configured to use both fluidity and roots,
+	which each have a grid() mixin.
+	Fluidity's grid doesn't load until imported,
+	so alias one as rootsGrid.
+
+*/ 
+
+rootsGrid = grid
+
+/*! Roots reset */
+global-reset()
+
+//debug()
+
+/*! Fluidity normalize, type, grid, and CSS3 */
 @import "fluidity"
+
+/*! Solarized color theme */
 @import "solarized"
 
-pageMinWidth = 480px
+/*! Base styles for Responsive Setup */
 
-responsiveBreakpoint = 800px
+pageMinWidth = 480px
+responsiveBreakpoint = 840px
 responsiveMedia = 'screen and (max-width:'+responsiveBreakpoint+')'
+
 
 body
 	min-width pageMinWidth
@@ -19,13 +41,12 @@ body
 
 @media responsiveMedia
 	body
-		min-width responsiveBreakpoint/2
+		min-width (responsiveBreakpoint/2)
 	#wrapper
-		grid(100%, responsiveBreakpoint/2)
+		grid(100%, (responsiveBreakpoint/2))
 		#features
 			#current, #planned
 				grid-space(100%)
-
 
 #footer
 	text-align center
