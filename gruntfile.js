@@ -1,11 +1,12 @@
 module.exports = function(grunt) {
   var _ = grunt.util._;
   // Load all of our NPM tasks...
-  var languages = ['jade', 'stylus'];
-  var minifiers = ['uglify'];
-  var utilities = ['concat', 'copy', 'clean', 'watch', 'connect'];
+  var languages = ['jade', 'stylus'],
+      minifiers = ['uglify'],
+      linters   = ['jshint'],
+      utilities = ['concat', 'copy', 'clean', 'watch', 'connect'];
 
-  var contribLibs = _.union(languages, minifiers, utilities);
+  var contribLibs = _.union(languages, minifiers, linters, utilities);
   function prefixLibs(name) {return 'grunt-contrib-' + name;}
   contribLibs = _.map(contribLibs, prefixLibs);
 
@@ -30,6 +31,12 @@ module.exports = function(grunt) {
     meta: {
       name: '<%= pkg.name %>',
       banner: '/* <%= pkg.name %> - v<%= pkg.version %> - <%= template.today("m/d/yyyy") %> */'
+    },
+    jshint: {
+      options: {
+        expr: true
+      },
+      all: ['gruntfile.js', 'src/scripts/**/*.js', '!src/scripts/vendor/**']
     },
     uglify: {
       options: {

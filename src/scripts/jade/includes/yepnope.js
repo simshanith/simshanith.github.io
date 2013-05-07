@@ -30,18 +30,18 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 yepnope([{
-        // ### jQuery
-        test: window.navigator && navigator.onLine || !window.navigator,
-        yep: '//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js',
-        complete: function(){
-            yepnope({
-                test: window.jQuery,
-                nope: '/assets/scripts/vendor/jquery.min.js'
-            });
-        }
-    },{ // ## Main Script
-        load: 'assets/scripts/main.js',
-        complete: function() {
-        	window.console && console.log && console.log('All scripts loaded.');
-        }
-    }]);
+    // ### jQuery
+    test: window.navigator && navigator.onLine || !window.navigator,
+    yep: '//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js',
+    complete: function(){
+      yepnope({
+        test: window.jQuery,
+        nope: '/assets/scripts/vendor/jquery.min.js'
+      });
+    }
+  },{ // ## Main Script
+    load: 'assets/scripts/main.js',
+    complete: function() {
+      window.console && console.log && console.log('All scripts loaded.');
+    }
+  }]);
