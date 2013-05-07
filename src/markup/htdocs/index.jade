@@ -2,7 +2,7 @@ extends ../templates/main
 
 append header
 	:markdown
-		## Jade+Grunt = amazing.
+		## Jade+Stylus+Grunt = amazing.
 
 prepend endScripts
 	a.github(href="https://github.com/simshanith/simshanith.github.io")
@@ -10,38 +10,41 @@ prepend endScripts
 
 block mainContent
 	p
-		button#theme Switch to Dark
+		button#theme Switch to Light
 	:markdown
 		Node.JS provides a powerful platform for programming the generation of static HTML files.
 		This site is the result of an example build system.
+	#features
+		h3 Features
+		#current
+			:markdown
+				#### Current:
 
-		### Features
+				* ##### Markup
+					* HTML5 Boilerplate inspired template
+					* Inlined yepnope script
+					* Jade Template Inheritance, Includes, and Locals
+				* ##### Styles
+					* Fluidity Stylus framework
+					* Roots.cx Stylus mixins
+					* Solarized colors adapted from LESS
+					* Can include vendor css as needed
+				* ##### Scripts
+					* Runs clientside scripts through Uglify linting & minification
+					* Scripts are injected with yepnope
+				* ##### Misc
+					* Grunt Task Chains for scripts, styles, and markup
+					* Grunt Watch for kicking off tasks
+					* Grunt Connect for serving static site over HTTP
+		#planned
+			:markdown
+				#### Planned:
 
-		#### Current:
-
-		* ##### Markup
-			* HTML5 Boilerplate inspired template
-			* Inlined yepnope script
-			* Jade Template Inheritance, Includes, and Locals
-		* ##### Styles
-			* Fluidity Stylus framework
-			* Solarized Stylus colors
-			* Can include vendor css as needed
-		* ##### Scripts
-			* Runs clientside scripts through Uglify linting & minification
-			* Scripts are injected with yepnope
-		* ##### Misc
-			* Grunt Task Chains for scripts, styles, and markup
-			* Grunt Watch for kicking off tasks
-			* Grunt Connect for serving static site over HTTP
-
-		#### Planned:
-
-		* JavaScript dependency management
-		* Test JavaScript
-			* Build Processes (are my build files broken? do my Jade files compile correctly?)
-			* Clientside JavaScript (do my scripts work, and continue to work after minification?)
-			* Try alongside Travis.CI
-		* Build documentation with stylized syntax highlighting.
-			* Maybe implement a Grunt Pygments task?
-			* Or invoke from command line.
+				* JavaScript dependency management
+				* Test JavaScript
+					* Build Processes (are my build files broken? do my Jade files compile correctly?)
+					* Clientside JavaScript (do my scripts work, and continue to work after minification?)
+					* Try alongside Travis.CI
+				* Build documentation with stylized syntax highlighting.
+					* Maybe implement a Grunt Pygments task?
+					* Or invoke from command line.

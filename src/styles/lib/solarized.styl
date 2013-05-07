@@ -27,12 +27,12 @@ rebase(rebase03,rebase02,rebase01,rebase00,rebase0,rebase1,rebase2,rebase3)
     a, a:active, a:visited
     	color rebase1
 
-// light is default mode, so pair with general html definition
-body, .light
-	rebase(solarized_base3,solarized_base2,solarized_base1,solarized_base0,solarized_base00,solarized_base01,solarized_base02,solarized_base03)
-
-.dark
+// dark is default mode, so pair with general html definition
+body, .dark
 	rebase(solarized_base03,solarized_base02,solarized_base01,solarized_base00,solarized_base0,solarized_base1,solarized_base2,solarized_base3)
+
+.light
+	rebase(solarized_base3,solarized_base2,solarized_base1,solarized_base0,solarized_base00,solarized_base01,solarized_base02,solarized_base03)
 
 body, body.light, body.dark
 	h1
@@ -47,5 +47,14 @@ body, body.light, body.dark
 		color solarized_magenta
 	h6
 		color solarized_red
+	
+body.light
 	button
-		color solarized_violet
+		button( solarized_base1 )
+		&, &:hover
+			color solarized_violet
+body, body.dark
+	button
+		button( solarized_base0 )
+		&, &:hover
+			color solarized_violet

@@ -21,59 +21,64 @@
     <body>
         <div id="wrapper">
             <header id="header"><h1>Hello World.</h1>
-                <h2>Jade+Grunt = amazing.</h2>
+                <h2>Jade+Stylus+Grunt = amazing.</h2>
             </header>
             <section id="mainContent">
                 <p>
-                    <button id="theme">Switch to Dark</button>
+                    <button id="theme">Switch to Light</button>
                 </p>
                 <p>Node.JS provides a powerful platform for programming the generation of static HTML files. This site is the result of an example build system.</p>
-                <h3>Features</h3>
-                <h4>Current:</h4>
-                <ul>
-                    <li><h5>Markup</h5>
+                <div id="features">
+                    <h3>Features</h3>
+                    <div id="current"><h4>Current:</h4>
                         <ul>
-                            <li>HTML5 Boilerplate inspired template</li>
-                            <li>Inlined yepnope script</li>
-                            <li>Jade Template Inheritance, Includes, and Locals</li>
+                            <li><h5>Markup</h5>
+                                <ul>
+                                    <li>HTML5 Boilerplate inspired template</li>
+                                    <li>Inlined yepnope script</li>
+                                    <li>Jade Template Inheritance, Includes, and Locals</li>
+                                </ul>
+                            </li>
+                            <li><h5>Styles</h5>
+                                <ul>
+                                    <li>Fluidity Stylus framework</li>
+                                    <li>Roots.cx Stylus mixins</li>
+                                    <li>Solarized colors adapted from LESS</li>
+                                    <li>Can include vendor css as needed</li>
+                                </ul>
+                            </li>
+                            <li><h5>Scripts</h5>
+                                <ul>
+                                    <li>Runs clientside scripts through Uglify linting &amp; minification</li>
+                                    <li>Scripts are injected with yepnope</li>
+                                </ul>
+                            </li>
+                            <li><h5>Misc</h5>
+                                <ul>
+                                    <li>Grunt Task Chains for scripts, styles, and markup</li>
+                                    <li>Grunt Watch for kicking off tasks</li>
+                                    <li>Grunt Connect for serving static site over HTTP</li>
+                                </ul>
+                            </li>
                         </ul>
-                    </li>
-                    <li><h5>Styles</h5>
+                    </div>
+                    <div id="planned"><h4>Planned:</h4>
                         <ul>
-                            <li>Fluidity Stylus framework</li>
-                            <li>Solarized Stylus colors</li>
-                            <li>Can include vendor css as needed</li>
+                            <li>JavaScript dependency management</li>
+                            <li>Test JavaScript<ul>
+                                    <li>Build Processes (are my build files broken? do my Jade files compile correctly?)</li>
+                                    <li>Clientside JavaScript (do my scripts work, and continue to work after minification?)</li>
+                                    <li>Try alongside Travis.CI</li>
+                                </ul>
+                            </li>
+                            <li>Build documentation with stylized syntax highlighting.<ul>
+                                    <li>Maybe implement a Grunt Pygments task?</li>
+                                    <li>Or invoke from command line.</li>
+                                </ul>
+                            </li>
                         </ul>
-                    </li>
-                    <li><h5>Scripts</h5>
-                        <ul>
-                            <li>Runs clientside scripts through Uglify linting &amp; minification</li>
-                            <li>Scripts are injected with yepnope</li>
-                        </ul>
-                    </li>
-                    <li><h5>Misc</h5>
-                        <ul>
-                            <li>Grunt Task Chains for scripts, styles, and markup</li>
-                            <li>Grunt Watch for kicking off tasks</li>
-                            <li>Grunt Connect for serving static site over HTTP</li>
-                        </ul>
-                    </li>
-                </ul>
-                <h4>Planned:</h4>
-                <ul>
-                    <li>JavaScript dependency management</li>
-                    <li>Test JavaScript<ul>
-                            <li>Build Processes (are my build files broken? do my Jade files compile correctly?)</li>
-                            <li>Clientside JavaScript (do my scripts work, and continue to work after minification?)</li>
-                            <li>Try alongside Travis.CI</li>
-                        </ul>
-                    </li>
-                    <li>Build documentation with stylized syntax highlighting.<ul>
-                            <li>Maybe implement a Grunt Pygments task?</li>
-                            <li>Or invoke from command line.</li>
-                        </ul>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </section>
             <footer id="footer"><h6>Copyright &copy; 2013 Shane Daniel</h6>
             </footer>

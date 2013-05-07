@@ -1,17 +1,30 @@
 @import "fluidity"
-
 @import "solarized"
 
 pageMinWidth = 480px
 
+responsiveBreakpoint = 800px
+responsiveMedia = 'screen and (max-width:'+responsiveBreakpoint+')'
+
 body
 	min-width pageMinWidth
 	position relative
+	font-family monospace
 
 #wrapper
-	grid(60%, pageMinWidth)
+	grid(80%, pageMinWidth)
+	#features
+		#current, #planned
+			grid-space(50%)
 
-
+@media responsiveMedia
+	body
+		min-width responsiveBreakpoint/2
+	#wrapper
+		grid(100%, responsiveBreakpoint/2)
+		#features
+			#current, #planned
+				grid-space(100%)
 
 
 #footer

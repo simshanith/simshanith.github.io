@@ -32,6 +32,7 @@
     "grunt-symbolic-link": "~0.3.1",
     "lodash": "~1.2.0",
     "marked": "~0.2.8",
+    "roots-css": "~0.1.11",
     "stylus": "~0.32.1"
   }
 }

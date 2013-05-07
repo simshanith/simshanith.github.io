@@ -18,8 +18,8 @@ module.exports = function(grunt) {
   // load our jade locals module
   var jadeLocals = require('./src/markup/helpers/scripts/jade_locals.js')(grunt);
 
-  // load roots-css
-  var fluidity = require('fluidity');
+  // load stylus plugins
+  var stylusPlugins = [require('fluidity'), require('roots-css')];
 
   grunt.initConfig({
     // Read build info from --dev or --build="build" command line args.
@@ -55,7 +55,7 @@ module.exports = function(grunt) {
     },
     stylus: {
       options:{
-        use: [fluidity]
+        use: stylusPlugins
       },
       compile: {
         files: [{

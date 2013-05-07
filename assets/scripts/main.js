@@ -3,14 +3,15 @@
 
 	var $body = $('body'),
 		$button = $('#theme'),
-		light = $button.text(),
-		dark = 'Switch to Light';
+		dark = $button.text(),
+		light = 'Switch to Dark';
 	function toggleTheme() {
-		$body.toggleClass('dark');
-		var text = $body.hasClass('dark') ? dark : light;
+		$body.toggleClass('light dark');
+		var text = $body.hasClass('light') ? light : dark;
 		$button.text(text);
 	}
 	function bindButton() {
+		$body.addClass('dark');
 		$button.click(toggleTheme);
 	}
 
