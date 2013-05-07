@@ -1,0 +1,15 @@
+body,.light{background-color:#fdf6e3;color:#657b83;}
+body *,.light *{color:#657b83}
+body h1,.light h1,body h2,.light h2,body h3,.light h3,body h4,.light h4,body h5,.light h5,body h6,.light h6{color:#586e75;border-color:#657b83}
+body a,.light a,body a:active,.light a:active,body a:visited,.light a:visited{color:#586e75}
+.dark{background-color:#002b36;color:#839496;}
+.dark *{color:#839496}
+.dark h1,.dark h2,.dark h3,.dark h4,.dark h5,.dark h6{color:#93a1a1;border-color:#839496}
+.dark a,.dark a:active,.dark a:visited{color:#93a1a1}
+body h1,body.light h1,body.dark h1{color:#268bd2}
+body h2,body.light h2,body.dark h2{color:#859900}
+body h3,body.light h3,body.dark h3{color:#cb4b16}
+body h4,body.light h4,body.dark h4{color:#2aa198}
+body h5,body.light h5,body.dark h5{color:#d33682}
+body h6,body.light h6,body.dark h6{color:#dc322f}
+body button,body.light button,body.dark button{color:#6c71c4}

@@ -1,0 +1,37 @@
+{
+  "name": "simshanith.github.io",
+  "version": "0.1.0",
+  "description": "Simshanith GitHub Pages, powered by Node, Grunt, Jade, and Stylus.",
+  "scripts": {
+    "start": "grunt connect:site:keepalive",
+    "test": "echo 'someday'"
+  },
+  "author": {
+    "name": "Shane Daniel",
+    "email": "simrpgman@gmail.com",
+    "url": "http://simloovoo.com"
+  },
+  "license": "Copyright (c) 2013 Shane Daniel. MIT license.",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "fluidity": "~0.1.5",
+    "grunt": "~0.4.1",
+    "grunt-cli": "~0.1.8",
+    "grunt-contrib-clean": "~0.4.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-connect": "~0.3.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-jade": "~0.5.0",
+    "grunt-contrib-jasmine": "~0.4.2",
+    "grunt-contrib-jshint": "~0.4.3",
+    "grunt-contrib-stylus": "~0.5.0",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-watch": "~0.4.0",
+    "grunt-markdown": "~0.2.0",
+    "grunt-template-helper": "~0.1.5",
+    "grunt-symbolic-link": "~0.3.1",
+    "lodash": "~1.2.0",
+    "marked": "~0.2.8",
+    "stylus": "~0.32.1"
+  }
+}

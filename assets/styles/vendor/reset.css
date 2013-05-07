@@ -1,0 +1,19 @@
+/* =====  RESETS, ANCHOR OUTLINE REMOVAL, HTML5 TAG SETUP, HR SETUP, FORM ELEMENT SETUP, CLEARFIX   ===== */
+html, body, a, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure,  footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; border-collapse: collapse; border-spacing: 0; }
+h1, h2, h3, h4, h5, h6 { font-weight:normal; }
+a { text-decoration:none; color:#fff; }
+a:hover, a:active, a:focus, object, embed { outline: none; text-decoration:none; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+input, select { vertical-align: middle; }
+button { width: auto; overflow: visible; }
+button, input, select, textarea { margin: 0; font-family: 'Helvetica','Arial',Sans-Serif;}
+label, input[type=button], input[type=submit], button { cursor: pointer; }
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: bottom; }
+input:disabled {opacity: 1}
+.ie7 input[type="checkbox"] { vertical-align: baseline; }
+.ie6 input { vertical-align: text-bottom; }
+textarea { overflow: auto; }
+.clearfix:before, .clearfix:after { content:"\0020"; display:block; height:0; visibility:hidden; } .clearfix:after { clear:both; }
+* { -webkit-tap-highlight-color: rgba(0, 0, 0, 0); } 

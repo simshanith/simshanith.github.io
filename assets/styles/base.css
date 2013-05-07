@@ -1,0 +1,90 @@
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block}
+audio,canvas,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+[hidden]{display:none}
+html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+body{margin:0}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace,serif;font-size:1em}
+pre{white-space:pre-wrap;word-wrap:break-word}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}
+input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+body{font-size:1em;line-height:1.38em;font-family:Helvetica,Verdana,Arial}
+p{margin:24px 28px}
+h1,h2,h3,h4,h5,h6{margin:.825em 24px}
+h1{font-size:1.8em}
+h2{font-size:1.6em}
+h3{font-size:1.4em}
+h4{font-size:1.2em}
+h5{font-size:1.1em}
+h6{font-size:1em}
+b,strong{font-weight:bold}
+i,em{font-style:italic;letter-spacing:.065em}
+address,blockquote{display:block;margin:48px;line-height:1.38em}
+address:first-line{font-weight:bold}
+blockquote{font-size:1.15em;text-align:center;margin:24px;}
+blockquote cite{font-style:italic;text-align:right;margin:0;}
+blockquote cite:before{content:"\2014\00a0"}
+blockquote cite:after{content:""}
+blockquote p{margin:0 20px}
+blockquote p:before{content:"\201C\00a0"}
+blockquote p:after{content:"\00a0\201D"}
+q{quotes:none;}
+q:before{content:"\201C\00a0"}
+q:after{content:"\00a0\201D"}
+cite,cite a{font-style:italic}
+cite:before{content:"("}
+cite:after{content:")"}
+pre,code{display:block;margin:.5em 24px 24px 24px;border-radius:0;padding:1em;background-color:#e2e2e2;border:1px solid #b3b3b3;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:none;font-size:.975em;font-family:"Courier New",Courier,monospace,sans-serif;overflow:auto;color:#414141}
+ul,ol,dl{margin:0 48px;padding:0;font-weight:normal;font-style:normal;font-size:100%;font-family:inherit}
+ul ul,ol ol,dl dl{margin:0 24px}
+ul{list-style-type:disc;}
+ul ul{list-style-type:circle}
+ol{list-style-type:decimal;}
+ol ol{list-style-type:lower-alpha}
+dl{font-weight:normal;font-style:normal;font-size:100%;font-family:inherit;list-style-type:none;margin:0 24px;}
+dl dt{font-weight:bold}
+dl dd{margin:20px 24px}
+header,footer,section{display:block;position:relative;float:left;width:100%;height:100%;margin:0;padding:0;clear:both}
+body,.light{background-color:#fdf6e3;color:#657b83;}
+body *,.light *{color:#657b83}
+body h1,.light h1,body h2,.light h2,body h3,.light h3,body h4,.light h4,body h5,.light h5,body h6,.light h6{color:#586e75;border-color:#657b83}
+body a,.light a,body a:active,.light a:active,body a:visited,.light a:visited{color:#586e75}
+.dark{background-color:#002b36;color:#839496;}
+.dark *{color:#839496}
+.dark h1,.dark h2,.dark h3,.dark h4,.dark h5,.dark h6{color:#93a1a1;border-color:#839496}
+.dark a,.dark a:active,.dark a:visited{color:#93a1a1}
+body h1,body.light h1,body.dark h1{color:#268bd2}
+body h2,body.light h2,body.dark h2{color:#859900}
+body h3,body.light h3,body.dark h3{color:#cb4b16}
+body h4,body.light h4,body.dark h4{color:#2aa198}
+body h5,body.light h5,body.dark h5{color:#d33682}
+body h6,body.light h6,body.dark h6{color:#dc322f}
+body button,body.light button,body.dark button{color:#6c71c4}
+body{min-width:480px;position:relative}
+#wrapper{position:relative;width:60%;min-width:480px;margin:0 auto;overflow:hidden}
+#footer{text-align:center}
+a.github{position:absolute;right:0;top:0}

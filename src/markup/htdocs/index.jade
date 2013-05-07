@@ -1,0 +1,47 @@
+extends ../templates/main
+
+append header
+	:markdown
+		## Jade+Grunt = amazing.
+
+prepend endScripts
+	a.github(href="https://github.com/simshanith/simshanith.github.io")
+		img(src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png", alt="Fork me on GitHub")
+
+block mainContent
+	p
+		button#theme Switch to Dark
+	:markdown
+		Node.JS provides a powerful platform for programming the generation of static HTML files.
+		This site is the result of an example build system.
+
+		### Features
+
+		#### Current:
+
+		* ##### Markup
+			* HTML5 Boilerplate inspired template
+			* Inlined yepnope script
+			* Jade Template Inheritance, Includes, and Locals
+		* ##### Styles
+			* Fluidity Stylus framework
+			* Solarized Stylus colors
+			* Can include vendor css as needed
+		* ##### Scripts
+			* Runs clientside scripts through Uglify linting & minification
+			* Scripts are injected with yepnope
+		* ##### Misc
+			* Grunt Task Chains for scripts, styles, and markup
+			* Grunt Watch for kicking off tasks
+			* Grunt Connect for serving static site over HTTP
+
+		#### Planned:
+
+		* JavaScript dependency management
+		* Test JavaScript
+			* Build Processes (are my build files broken? do my Jade files compile correctly?)
+			* Clientside JavaScript (do my scripts work, and continue to work after minification?)
+			* Try alongside Travis.CI
+		* Build documentation with stylized syntax highlighting.
+			* Maybe implement a Grunt Pygments task?
+			* Or invoke from command line.
