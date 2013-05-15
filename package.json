@@ -4,7 +4,7 @@
   "description": "Simshanith GitHub Pages, powered by Node, Grunt, Jade, and Stylus.",
   "scripts": {
     "start": "grunt connect:site:keepalive",
-    "test": "echo 'someday'"
+    "test": "grunt test"
   },
   "author": {
     "name": "Shane Daniel",
