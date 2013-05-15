@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
   var _ = grunt.util._;
   // Load all of our NPM tasks...
-  var languages = ['jade', 'stylus'],
+  var languages = ['jade', 'stylus', 'coffee'],
       minifiers = ['uglify'],
       linters   = ['jshint'],
       utilities = ['concat', 'copy', 'clean', 'watch', 'connect'];
@@ -10,7 +10,7 @@ module.exports = function(grunt) {
   function prefixLibs(name) {return 'grunt-contrib-' + name;}
   contribLibs = _.map(contribLibs, prefixLibs);
 
-  var thirdPartyLibs = ['grunt-template-helper', 'grunt-markdown'];
+  var thirdPartyLibs = ['grunt-template-helper', 'grunt-markdown', 'grunt-cafe-mocha'];
   var npmTasks = _.union(contribLibs, thirdPartyLibs);
 
   _.each(npmTasks, grunt.loadNpmTasks);
@@ -31,6 +31,20 @@ module.exports = function(grunt) {
     meta: {
       name: '<%= pkg.name %>',
       banner: '/* <%= pkg.name %> - v<%= pkg.version %> - <%= template.today("m/d/yyyy") %> */'
+    },
+    coffee: {
+      options: {
+
+      },
+      tests: {
+        files: [{
+          expand: true,
+          cwd: 'test/',
+          src: '{jasmine,mocha}/**/*.coffee',
+          dest: 'test/',
+          ext: '.js'
+        }]
+      }
     },
     jshint: {
       options: {
@@ -179,7 +193,14 @@ module.exports = function(grunt) {
       },
       stylus: ['build/styles/stylus'],
       jade: ['build/markup/jade'],
-      template: ['build/markup/prettyhtml']
+      template: ['build/markup/prettyhtml'],
+      coffeeTests: {
+        src: ['tests/{jasmine,mocha}/**/*.js'],
+        filter: function(filepath){
+          var coffeepath = filepath.replace('.js','.coffee');
+          return grunt.file.exists(coffeepath);
+        }
+      }
     },
     watch: {
       options: {
@@ -196,10 +217,25 @@ module.exports = function(grunt) {
       markup: {
         files: ['src/markup/**/*{.jade,.js}'],
         tasks: ['markup']
+      },
+      test: {
+        files: ['test/{jasmine,mocha}/**/*.coffee'],
+        tasks: ['test']
       }
     },
     connect: {
       site: {}
+    },
+    jasmine: {
+
+    },
+    cafemocha: {
+      options: {
+        reporter: 'spec',
+        growl: true,
+        compilers: 'coffee-script'
+      },
+      test: 'test/mocha/spec.js'
     }
   });
   // END `grunt.initConfig`
@@ -215,10 +251,10 @@ module.exports = function(grunt) {
       return;
     }
 
-    if(!grunt.option('debug'))
+    if(!grunt.option('debug') && !grunt.option('no-clean'))
         grunt.task.run('clean:'+name);
     else // redundant `else` as `grunt.log.debug` only logs with debug option specified
-      grunt.log.debug('Not cleaning intermediate '+name+'.');
+        grunt.log.subhead('Not cleaning intermediate '+name+'.');
 
   }
 
@@ -238,6 +274,10 @@ module.exports = function(grunt) {
 
     chainTasks(['jade:compile', 'template:prettyJade', 'copy:markup']);
 
+  });
+
+  grunt.registerTask('test', 'Build and run tests.',function(){
+    grunt.task.run(['coffee:tests', 'cafemocha:test', 'clean:coffeeTests']);
   });
 
   function cleanBuild (target){

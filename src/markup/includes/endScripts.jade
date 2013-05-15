@@ -1,10 +1,6 @@
 //-
 	MODERNIZR / YEPNOPE SCRIPT LOADING
 	Jade currently doesn't wrap included JS files properly,
-	so we have to do so manually.
-| <script type="text/javascript">
-| 
-!= scriptLoader();
-| 
-| </script>
+	so we have to do so manually with unescaped function output.
+!= includeJs('yepnope');
 | 

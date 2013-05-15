@@ -5,10 +5,24 @@ module.exports = function(grunt) {
 	var _ = grunt.util._;
 
 	var jadeLocals = {};
-	jadeLocals.scriptLoader = function() {
+
+	jadeLocals.includeJs = function(name) {
+		if(!_.isString(name) || !name)
+			return grunt.log.error('No script name included.');
+
+		function wrapScript(js){
+			js = _.isString(js) && js || '';
+			return ['<script type="text/javascript">',js,'</script>'].join('\n');
+		}
+
 		var build = grunt.config('build'),
-			piece = (_.isString(build) && build == 'dev') ? '.'+build : '';
-		return grunt.file.read('src/markup/includes/scripts/yepnope'+piece+'.js');
+			piece = (_.isString(build) && build != 'default') ? '.'+build : '';
+
+		var baseDir    = 'src/markup/includes/scripts/',
+			scriptPath = [baseDir, name, piece, '.js'].join(''),
+			script     = grunt.file.read(scriptPath); // will fail task on error
+
+		return wrapScript(script);
 	};
 
 	return jadeLocals;

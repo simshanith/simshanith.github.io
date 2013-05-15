@@ -4,15 +4,12 @@
 // ### Main front-end script loader. Should be included inline in HTML.
 //
 // The Jade helper file, `src/scripts/jade/helpers/jade_locals.js`,
-// exposes a `scriptLoader` function that returns script injecting JavaScript
-// read from the filesystem.
+// exposes a `includeJS` function that returns script injecting JavaScript
+// read from the filesystem, based on the build configuration.
 // 
 // The Jade include, `src/markup/includes/endScripts.jade`,
-// calls `scriptLoader()` and wraps the unescaped return value
-// in a `<script type="text/javascript"> tag.
+// uses the unescaped return value of `includeJs('yepnope')`
 //
-// The `scriptLoader` function can be modified in the helper file
-// to include different JavaScript based on the build.
 //
 // ## Script Notes
 //  
