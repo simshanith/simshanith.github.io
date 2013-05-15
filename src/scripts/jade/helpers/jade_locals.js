@@ -7,8 +7,10 @@ module.exports = function(grunt) {
 	var jadeLocals = {};
 
 	jadeLocals.includeJs = function(name) {
-		if(!_.isString(name) || !name)
-			return grunt.log.error('No script name included.');
+		if(!_.isString(name) || !name) {
+			grunt.log.error('No script name included.')
+			return;
+		}
 
 		function wrapScript(js){
 			js = _.isString(js) && js || '';
