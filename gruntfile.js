@@ -195,7 +195,7 @@ module.exports = function(grunt) {
       jade: ['build/markup/jade'],
       template: ['build/markup/prettyhtml'],
       coffeeTests: {
-        src: ['tests/{jasmine,mocha}/**/*.js'],
+        src: ['test/{jasmine,mocha}/**/*.js'],
         filter: function(filepath){
           var coffeepath = filepath.replace('.js','.coffee');
           return grunt.file.exists(coffeepath);
