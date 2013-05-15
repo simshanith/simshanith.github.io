@@ -219,7 +219,7 @@ module.exports = function(grunt) {
         tasks: ['markup']
       },
       test: {
-        files: ['test/{jasmine,mocha}/**/*.coffee'],
+        files: ['gruntfile.js', 'src/scripts/jade/helpers/jade_locals.js','test/{jasmine,mocha}/**/*.coffee'],
         tasks: ['test']
       }
     },

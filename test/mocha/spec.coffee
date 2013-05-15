@@ -61,4 +61,6 @@ describe 'Jade Locals Module', ->
 				htmlDev = locals.includeJs 'yepnope'
 				htmlProd.should.not.equal htmlDev
 				htmlDev.should.include '<script type="text/javascript">'
-				htmlDev.should.include '<script type="text/javascript">'
+				htmlDev.should.include '</script>'
+				htmlProd.should.include '<script type="text/javascript">'
+				htmlProd.should.include '</script>'
