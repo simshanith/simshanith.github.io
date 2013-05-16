@@ -16,6 +16,8 @@ block mainContent
 		Node.JS provides a powerful platform for programming the generation of static HTML files.
 		This site is the result of an example build system.
 
+		#### [Source Code Birds-eye](./docs/source-code/)
+
 	#features
 		h3 Features
 		#current
@@ -35,20 +37,21 @@ block mainContent
 				* ##### Scripts
 					* Runs clientside scripts through Uglify linting & minification
 					* Scripts are injected with yepnope
+				* ##### Tests
+					* Build process testing with Mocha, Should, and Sinon
+					* Automated on GitHub push with Travis-CI
+					* [![Build Status](https://travis-ci.org/simshanith/simshanith.github.io.png)](https://travis-ci.org/simshanith/simshanith.github.io)
 				* ##### Misc
 					* Grunt Task Chains for scripts, styles, and markup
 					* Grunt Watch for kicking off tasks
 					* Grunt Connect for serving static site over HTTP
+					* Grunt Pygmentize for Generating a Birds-eye Source Code View
 
 		#planned
 			:markdown
 				#### Planned:
 
 				* JavaScript dependency management
-				* Test JavaScript
-					* Build Processes (are my build files broken? do my Jade files compile correctly?)
-					* Clientside JavaScript (do my scripts work, and continue to work after minification?)
-					* Try alongside Travis.CI
-				* Build documentation with stylized syntax highlighting.
-					* Maybe implement a Grunt Pygments task?
-					* Or invoke from command line.
+				* More CoffeeScript
+				* More Links
+				* More Tests, probably using Jasmine

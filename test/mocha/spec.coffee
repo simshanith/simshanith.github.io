@@ -84,7 +84,9 @@ describe 'Jade Locals Module', ->
 				htmlProd = locals.includeJs name
 				grunt.config 'build', 'dev'
 				htmlDev = locals.includeJs name
+
 				htmlProd.should.not.equal htmlDev
+
 				htmlDev.should.include '<script type="text/javascript">'
 				htmlDev.should.include '</script>'
 				htmlProd.should.include '<script type="text/javascript">'

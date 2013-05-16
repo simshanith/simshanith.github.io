@@ -1,0 +1,270 @@
+<!DOCTYPE html><html><head><style>.highlight{background-color:#073642;color:#93a1a1}.highlight .c{color:#586e75 !important;font-style:italic !important}.highlight .cm{color:#586e75 !important;font-style:italic !important}.highlight .cp{color:#586e75 !important;font-style:italic !important}.highlight .c1{color:#586e75 !important;font-style:italic !important}.highlight .cs{color:#586e75 !important;font-weight:bold !important;font-style:italic !important}.highlight .err{color:#dc322f !important;background:none !important}.highlight .k{color:#cb4b16 !important}.highlight .o{color:#93a1a1 !important;font-weight:bold !important}.highlight .p{color:#93a1a1 !important}.highlight .ow{color:#2aa198 !important;font-weight:bold !important}.highlight .gd{color:#93a1a1 !important;background-color:#372c34 !important;display:inline-block}.highlight .gd .x{color:#93a1a1 !important;background-color:#4d2d33 !important;display:inline-block}.highlight .ge{color:#93a1a1 !important;font-style:italic !important}.highlight .gr{color:#aa0000}.highlight .gh{color:#586e75 !important}.highlight .gi{color:#93a1a1 !important;background-color:#1a412b !important;display:inline-block}.highlight .gi .x{color:#93a1a1 !important;background-color:#355720 !important;display:inline-block}.highlight .go{color:#888888}.highlight .gp{color:#555555}.highlight .gs{color:#93a1a1 !important;font-weight:bold !important}.highlight .gu{color:#6c71c4 !important}.highlight .gt{color:#aa0000}.highlight .kc{color:#859900 !important;font-weight:bold !important}.highlight .kd{color:#268bd2 !important}.highlight .kp{color:#cb4b16 !important;font-weight:bold !important}.highlight .kr{color:#d33682 !important;font-weight:bold !important}.highlight .kt{color:#2aa198 !important}.highlight .n{color:#268bd2 !important}.highlight .na{color:#268bd2 !important}.highlight .nb{color:#859900 !important}.highlight .nc{color:#d33682 !important}.highlight .no{color:#b58900 !important}.highlight .ni{color:#800080}.highlight .nl{color:#859900 !important}.highlight .ne{color:#268bd2 !important;font-weight:bold !important}.highlight .nf{color:#268bd2 !important;font-weight:bold !important}.highlight .nn{color:#b58900 !important}.highlight .nt{color:#268bd2 !important;font-weight:bold !important}.highlight .nx{color:#b58900 !important}.highlight .bp{color:#999999}.highlight .vc{color:#008080}.highlight .vg{color:#268bd2 !important}.highlight .vi{color:#268bd2 !important}.highlight .nv{color:#268bd2 !important}.highlight .w{color:#bbbbbb}.highlight .mf{color:#2aa198 !important}.highlight .m{color:#2aa198 !important}.highlight .mh{color:#2aa198 !important}.highlight .mi{color:#2aa198 !important}.highlight .mo{color:#009999}.highlight .s{color:#2aa198 !important}.highlight .sb{color:#d14}.highlight .sc{color:#d14}.highlight .sd{color:#2aa198 !important}.highlight .s2{color:#2aa198 !important}.highlight .se{color:#dc322f !important}.highlight .sh{color:#d14}.highlight .si{color:#268bd2 !important}.highlight .sx{color:#d14}.highlight .sr{color:#2aa198 !important}.highlight .s1{color:#2aa198 !important}.highlight .ss{color:#990073}.highlight .il{color:#009999}.highlight div .gd,.highlight div .gd .x,.highlight div .gi,.highlight div .gi .x{display:inline-block;width:100%}</style></head><body><h3><pre><a href="https://github.com/simshanith/simshanith.github.io/tree/master/src/markup/htdocs/index.jade">src/markup/htdocs/index.jade</a></pre></h3><div class="highlight"><pre><span class="nt">extends</span> ../templates/main
+
+<span class="nt">append</span> header
+	<span class="nd">:markdown</span>
+		<span class="nd">## Jade+Stylus+Grunt = amazing.</span>
+
+<span class="nt">prepend</span> endScripts
+	<span class="nt">a</span><span class="nc">.github</span>(<span class="na">href=</span><span class="s">&quot;https://github.com/simshanith/simshanith.github.io&quot;</span>)
+		<span class="nt">img</span>(<span class="na">src=</span><span class="s">&quot;https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png&quot;</span><span class="err">,</span>
+			<span class="na">alt=</span><span class="s">&quot;Fork me on GitHub&quot;</span>)
+
+<span class="nt">block</span> mainContent
+	<span class="nt">p</span>
+		<span class="nt">button</span><span class="nf">#theme</span> Switch to Light
+	<span class="nd">:markdown</span>
+		<span class="nd">Node.JS provides a powerful platform for programming the generation of static HTML files.</span>
+		<span class="nd">This site is the result of an example build system.</span>
+
+		<span class="nd">#### [Source Code Birds-eye](./docs/source-code/)</span>
+
+	<span class="nf">#features</span>
+		<span class="nt">h3</span> Features
+		<span class="nf">#current</span>
+			<span class="nd">:markdown</span>
+				<span class="nd">#### Current:</span>
+
+				<span class="nd">* ##### Markup</span>
+					<span class="nd">* HTML5 Boilerplate inspired template</span>
+					<span class="nd">* Inlined yepnope script</span>
+					<span class="nd">* Jade Template Inheritance, Includes, and Locals</span>
+				<span class="nd">* ##### Styles</span>
+					<span class="nd">* Fluidity Stylus framework</span>
+					<span class="nd">* Roots.cx Stylus mixins</span>
+					<span class="nd">* Solarized colors adapted from LESS</span>
+					<span class="nd">* Can include vendor css as needed</span>
+					<span class="nd">* Mobile-Friendly with responsive breakpoint</span>
+				<span class="nd">* ##### Scripts</span>
+					<span class="nd">* Runs clientside scripts through Uglify linting &amp; minification</span>
+					<span class="nd">* Scripts are injected with yepnope</span>
+				<span class="nd">* ##### Tests</span>
+					<span class="nd">* Build process testing with Mocha, Should, and Sinon</span>
+					<span class="nd">* Automated on GitHub push with Travis-CI</span>
+					<span class="nd">* [![Build Status](https://travis-ci.org/simshanith/simshanith.github.io.png)](https://travis-ci.org/simshanith/simshanith.github.io)</span>
+				<span class="nd">* ##### Misc</span>
+					<span class="nd">* Grunt Task Chains for scripts, styles, and markup</span>
+					<span class="nd">* Grunt Watch for kicking off tasks</span>
+					<span class="nd">* Grunt Connect for serving static site over HTTP</span>
+					<span class="nd">* Grunt Pygmentize for Generating a Birds-eye Source Code View</span>
+
+		<span class="nf">#planned</span>
+			<span class="nd">:markdown</span>
+				<span class="nd">#### Planned:</span>
+
+				<span class="nd">* JavaScript dependency management</span>
+				<span class="nd">* More CoffeeScript</span>
+				<span class="nd">* More Links</span>
+				<span class="nd">* More Tests, probably using Jasmine</span>
+</pre></div>
+
+<h3><pre><a href="https://github.com/simshanith/simshanith.github.io/tree/master/src/markup/includes/endScripts.jade">src/markup/includes/endScripts.jade</a></pre></h3><div class="highlight"><pre><span class="c">//-</span>
+	<span class="c">MODERNIZR / YEPNOPE SCRIPT LOADING</span>
+	<span class="c">Jade currently doesn&#39;t wrap included JS files properly,</span>
+	<span class="c">so we have to do so manually with unescaped function output.</span>
+<span class="err">!= </span><span class="nt">includeJs</span>(<span class="err">&#39;</span><span class="na">yepnope</span><span class="err">&#39;</span>);
+| 
+</pre></div>
+
+<h3><pre><a href="https://github.com/simshanith/simshanith.github.io/tree/master/src/markup/includes/footer.jade">src/markup/includes/footer.jade</a></pre></h3><div class="highlight"><pre><span class="nd">:markdown</span>
+	<span class="nd">###### Copyright &amp;copy; 2013 Shane Daniel</span>
+</pre></div>
+
+<h3><pre><a href="https://github.com/simshanith/simshanith.github.io/tree/master/src/markup/includes/header.jade">src/markup/includes/header.jade</a></pre></h3><div class="highlight"><pre><span class="nd">:markdown</span>
+	<span class="nd"># Hello World.</span>
+</pre></div>
+
+<h3><pre><a href="https://github.com/simshanith/simshanith.github.io/tree/master/src/markup/templates/main.jade">src/markup/templates/main.jade</a></pre></h3><div class="highlight"><pre><span class="nn">!!! 5</span>
+<span class="c">//if lt IE 7</span>
+    <span class="c">&lt;html class=&quot;no-js lt-ie9 lt-ie8 lt-ie7&quot;&gt;</span>
+<span class="c">//if IE 7</span>
+    <span class="c">&lt;html class=&quot;no-js lt-ie9 lt-ie8&quot;&gt;</span>
+<span class="c">//if IE 8</span>
+    <span class="c">&lt;html class=&quot;no-js lt-ie9&quot;&gt;</span>
+<span class="c">//[if gt IE 8]&gt;&lt;!</span>
+<span class="nt">html</span><span class="nc">.no-js</span>
+    | &lt;!--&lt;![endif]--&gt;
+    <span class="nt">head</span>
+        <span class="nt">meta</span>(<span class="na">charset=</span><span class="s">&#39;utf-8&#39;</span>)
+        <span class="nt">meta</span>(<span class="na">http-equiv=</span><span class="s">&#39;X-UA-Compatible&#39;</span><span class="err">,</span> <span class="na">content=</span><span class="s">&#39;IE=edge,chrome=1&#39;</span>)
+        <span class="nt">title</span> Shane Daniel Github.io
+        <span class="nt">meta</span>(<span class="na">name=</span><span class="s">&#39;description&#39;</span><span class="err">,</span> <span class="na">content=</span><span class="s">&#39;&#39;</span>)
+        <span class="nt">meta</span>(<span class="na">name=</span><span class="s">&#39;keywords&#39;</span><span class="err">,</span> <span class="na">content=</span><span class="s">&#39;&#39;</span>)
+        <span class="nt">meta</span>(<span class="na">name=</span><span class="s">&#39;HandheldFriendly&#39;</span><span class="err">,</span> <span class="na">content=</span><span class="s">&#39;true&#39;</span>)
+        <span class="nt">meta</span>(<span class="na">name=</span><span class="s">&#39;MobileOptimized&#39;</span><span class="err">,</span> <span class="na">content=</span><span class="s">&#39;width&#39;</span>)
+        <span class="nt">meta</span>(<span class="na">name=</span><span class="s">&#39;format-detection&#39;</span><span class="err">,</span> <span class="na">content=</span><span class="s">&#39;telephone=no&#39;</span>)
+        <span class="nt">block</span> stylesheets
+            <span class="nt">link</span>(<span class="na">rel=</span><span class="s">&#39;stylesheet&#39;</span><span class="err">,</span> <span class="na">href=</span><span class="s">&#39;assets/styles/base.css&#39;</span>)
+        <span class="nt">block</span> favicons
+            <span class="nt">link</span>(<span class="na">rel=</span><span class="s">&#39;apple-touch-icon&#39;</span><span class="err">,</span> <span class="na">sizes=</span><span class="s">&#39;144x144&#39;</span><span class="err">,</span> <span class="na">href=</span><span class="s">&#39;assets/images/touch/apple-touch-icon-144x144-precomposed.png&#39;</span>)
+            <span class="nt">link</span>(<span class="na">rel=</span><span class="s">&#39;apple-touch-icon&#39;</span><span class="err">,</span> <span class="na">sizes=</span><span class="s">&#39;114x114&#39;</span><span class="err">,</span> <span class="na">href=</span><span class="s">&#39;assets/images/touch/apple-touch-icon-114x114-precomposed.png&#39;</span>)
+            <span class="nt">link</span>(<span class="na">rel=</span><span class="s">&#39;apple-touch-icon&#39;</span><span class="err">,</span> <span class="na">sizes=</span><span class="s">&#39;72x72&#39;</span><span class="err">,</span> <span class="na">href=</span><span class="s">&#39;assets/images/touch/apple-touch-icon-72x72-precomposed.png&#39;</span>)
+            <span class="nt">link</span>(<span class="na">rel=</span><span class="s">&#39;apple-touch-icon&#39;</span><span class="err">,</span> <span class="na">href=</span><span class="s">&#39;assets/images/touch/apple-touch-icon-57x57-precomposed.png&#39;</span>)
+            <span class="nt">link</span>(<span class="na">rel=</span><span class="s">&#39;shortcut icon&#39;</span><span class="err">,</span> <span class="na">href=</span><span class="s">&#39;assets/images/touch/apple-touch-icon.png&#39;</span>)
+        <span class="nt">meta</span>(<span class="na">name=</span><span class="s">&#39;viewport&#39;</span><span class="err">,</span> <span class="na">content=</span><span class="s">&#39;width=device-width, maximum-scale=1.0, target-densityDpi=320dpi&#39;</span>)
+        <span class="nt">block</span> headScripts
+            <span class="nt">script</span>(<span class="na">src=</span><span class="s">&#39;assets/scripts/vendor/modernizr-2.6.2.min.js&#39;</span>)
+    <span class="nt">body</span>
+        <span class="nf">#wrapper</span>
+            <span class="nt">header</span><span class="nf">#header</span>
+                <span class="nt">block</span> header
+                    <span class="nt">include</span> ../includes/header
+            <span class="nt">section</span><span class="nf">#mainContent</span>
+                <span class="nt">block</span> mainContent
+            <span class="nt">footer</span><span class="nf">#footer</span>
+                <span class="nt">block</span> footer
+                    <span class="nt">include</span> ../includes/footer
+        <span class="nt">block</span> endScripts
+            <span class="nt">include</span> ../includes/endScripts
+</pre></div>
+
+<h3><pre><a href="https://github.com/simshanith/simshanith.github.io/tree/master/src/scripts/jade/helpers/jade_locals.js">src/scripts/jade/helpers/jade_locals.js</a></pre></h3><div class="highlight"><pre><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">grunt</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// Grunt loaded for utilities; do not configure here. </span>
+	<span class="c1">// Reading from configuration may not work either,</span>
+	<span class="c1">// unless done at task runtime; e.g. in a function.</span>
+	<span class="kd">var</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">grunt</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">_</span><span class="p">;</span>
+
+	<span class="kd">var</span> <span class="nx">jadeLocals</span> <span class="o">=</span> <span class="p">{};</span>
+
+	<span class="nx">jadeLocals</span><span class="p">.</span><span class="nx">includeJs</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">_</span><span class="p">.</span><span class="nx">isString</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="o">||</span> <span class="o">!</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">grunt</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;No script name included.&#39;</span><span class="p">);</span>
+			<span class="k">return</span><span class="p">;</span>
+		<span class="p">}</span>
+
+		<span class="kd">function</span> <span class="nx">wrapScript</span><span class="p">(</span><span class="nx">js</span><span class="p">){</span>
+			<span class="nx">js</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">isString</span><span class="p">(</span><span class="nx">js</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">js</span> <span class="o">||</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+			<span class="k">return</span> <span class="p">[</span><span class="s1">&#39;&lt;script type=&quot;text/javascript&quot;&gt;&#39;</span><span class="p">,</span><span class="nx">js</span><span class="p">,</span><span class="s1">&#39;&lt;/script&gt;&#39;</span><span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">);</span>
+		<span class="p">}</span>
+
+		<span class="kd">var</span> <span class="nx">build</span> <span class="o">=</span> <span class="nx">grunt</span><span class="p">.</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;build&#39;</span><span class="p">),</span>
+			<span class="nx">piece</span> <span class="o">=</span> <span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">isString</span><span class="p">(</span><span class="nx">build</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">build</span> <span class="o">!=</span> <span class="s1">&#39;default&#39;</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;.&#39;</span><span class="o">+</span><span class="nx">build</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+
+		<span class="kd">var</span> <span class="nx">baseDir</span>    <span class="o">=</span> <span class="s1">&#39;src/markup/includes/scripts/&#39;</span><span class="p">,</span>
+			<span class="nx">scriptPath</span> <span class="o">=</span> <span class="p">[</span><span class="nx">baseDir</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">piece</span><span class="p">,</span> <span class="s1">&#39;.js&#39;</span><span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">),</span>
+			<span class="nx">script</span>     <span class="o">=</span> <span class="nx">grunt</span><span class="p">.</span><span class="nx">file</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="nx">scriptPath</span><span class="p">);</span> <span class="c1">// will fail task on error</span>
+
+		<span class="k">return</span> <span class="nx">wrapScript</span><span class="p">(</span><span class="nx">script</span><span class="p">);</span>
+	<span class="p">};</span>
+
+	<span class="k">return</span> <span class="nx">jadeLocals</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+
+<h3><pre><a href="https://github.com/simshanith/simshanith.github.io/tree/master/src/scripts/jade/includes/yepnope.dev.js">src/scripts/jade/includes/yepnope.dev.js</a></pre></h3><div class="highlight"><pre><span class="c1">////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">//</span>
+<span class="c1">// ## Grunt Build Notes</span>
+<span class="c1">// ### Main front-end script loader. Should be included inline in HTML.</span>
+<span class="c1">//</span>
+<span class="c1">// The Jade helper file, `src/scripts/jade/helpers/jade_locals.js`,</span>
+<span class="c1">// exposes a `scriptLoader` function that returns script injecting JavaScript</span>
+<span class="c1">// read from the filesystem.</span>
+<span class="c1">// </span>
+<span class="c1">// The Jade include, `src/markup/includes/endScripts.jade`,</span>
+<span class="c1">// calls `scriptLoader()` and wraps the unescaped return value</span>
+<span class="c1">// in a `&lt;script type=&quot;text/javascript&quot;&gt; tag.</span>
+<span class="c1">//</span>
+<span class="c1">// The `scriptLoader` function can be modified in the helper file</span>
+<span class="c1">// to include different JavaScript based on the build.</span>
+<span class="c1">//</span>
+<span class="c1">// ## Script Notes</span>
+<span class="c1">//  </span>
+<span class="c1">// Development convenience script loader.</span>
+<span class="c1">//</span>
+<span class="c1">// ### jQuery</span>
+<span class="c1">//</span>
+<span class="c1">// Checks for online status, then attempts to download jQuery via CDN.</span>
+<span class="c1">// Then, it checks for jQuery and falls back to a local copy.</span>
+<span class="c1">//</span>
+<span class="c1">// ### Scripts</span>
+<span class="c1">// </span>
+<span class="c1">// Loads individual site scipts. Logs complete message.</span>
+<span class="c1">//</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="nx">yepnope</span><span class="p">([{</span>
+    <span class="c1">// ### jQuery</span>
+    <span class="nx">test</span><span class="o">:</span> <span class="nb">window</span><span class="p">.</span><span class="nx">navigator</span> <span class="o">&amp;&amp;</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">onLine</span> <span class="o">||</span> <span class="o">!</span><span class="nb">window</span><span class="p">.</span><span class="nx">navigator</span><span class="p">,</span>
+    <span class="nx">yep</span><span class="o">:</span> <span class="s1">&#39;//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js&#39;</span><span class="p">,</span>
+    <span class="nx">complete</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="nx">yepnope</span><span class="p">({</span>
+        <span class="nx">test</span><span class="o">:</span> <span class="nb">window</span><span class="p">.</span><span class="nx">jQuery</span><span class="p">,</span>
+        <span class="nx">nope</span><span class="o">:</span> <span class="s1">&#39;/assets/scripts/vendor/jquery.min.js&#39;</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">},{</span> <span class="c1">// ### Scripts</span>
+    <span class="nx">load</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;assets/scripts/main.js&#39;</span><span class="p">],</span>
+    <span class="nx">complete</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">console</span> <span class="o">&amp;&amp;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="o">&amp;&amp;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;All scripts loaded.&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}]);</span>
+</pre></div>
+
+<h3><pre><a href="https://github.com/simshanith/simshanith.github.io/tree/master/src/scripts/jade/includes/yepnope.js">src/scripts/jade/includes/yepnope.js</a></pre></h3><div class="highlight"><pre><span class="c1">////////////////////////////////////////////////////////////////////////////////</span>
+<span class="c1">//</span>
+<span class="c1">// ## Grunt Build Notes</span>
+<span class="c1">// ### Main front-end script loader. Should be included inline in HTML.</span>
+<span class="c1">//</span>
+<span class="c1">// The Jade helper file, `src/scripts/jade/helpers/jade_locals.js`,</span>
+<span class="c1">// exposes a `includeJS` function that returns script injecting JavaScript</span>
+<span class="c1">// read from the filesystem, based on the build configuration.</span>
+<span class="c1">// </span>
+<span class="c1">// The Jade include, `src/markup/includes/endScripts.jade`,</span>
+<span class="c1">// uses the unescaped return value of `includeJs(&#39;yepnope&#39;)`</span>
+<span class="c1">//</span>
+<span class="c1">//</span>
+<span class="c1">// ## Script Notes</span>
+<span class="c1">//  </span>
+<span class="c1">// Development convenience script loader.</span>
+<span class="c1">//</span>
+<span class="c1">// ### jQuery</span>
+<span class="c1">//</span>
+<span class="c1">// Checks for online status, then attempts to download jQuery via CDN.</span>
+<span class="c1">// Then, it checks for jQuery and falls back to a local copy.</span>
+<span class="c1">//</span>
+<span class="c1">// ### Main Script</span>
+<span class="c1">// </span>
+<span class="c1">// Loads site payload. Logs complete message.</span>
+<span class="c1">//</span>
+<span class="c1">////////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="nx">yepnope</span><span class="p">([{</span>
+    <span class="c1">// ### jQuery</span>
+    <span class="nx">test</span><span class="o">:</span> <span class="nb">window</span><span class="p">.</span><span class="nx">navigator</span> <span class="o">&amp;&amp;</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">onLine</span> <span class="o">||</span> <span class="o">!</span><span class="nb">window</span><span class="p">.</span><span class="nx">navigator</span><span class="p">,</span>
+    <span class="nx">yep</span><span class="o">:</span> <span class="s1">&#39;//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js&#39;</span><span class="p">,</span>
+    <span class="nx">complete</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+      <span class="nx">yepnope</span><span class="p">({</span>
+        <span class="nx">test</span><span class="o">:</span> <span class="nb">window</span><span class="p">.</span><span class="nx">jQuery</span><span class="p">,</span>
+        <span class="nx">nope</span><span class="o">:</span> <span class="s1">&#39;/assets/scripts/vendor/jquery.min.js&#39;</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">},{</span> <span class="c1">// ## Main Script</span>
+    <span class="nx">load</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;assets/scripts/main.min.js&#39;</span><span class="p">],</span>
+    <span class="nx">complete</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">console</span> <span class="o">&amp;&amp;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="o">&amp;&amp;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;All scripts loaded.&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}]);</span>
+</pre></div>
+
+<h3><pre><a href="https://github.com/simshanith/simshanith.github.io/tree/master/src/scripts/lib/main.js">src/scripts/lib/main.js</a></pre></h3><div class="highlight"><pre><span class="p">;(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">,</span> <span class="nb">window</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">){</span>
+	<span class="nb">window</span><span class="p">.</span><span class="nx">console</span> <span class="o">&amp;&amp;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Welcome to main.js.&#39;</span><span class="p">);</span>
+
+	<span class="kd">var</span> <span class="nx">$body</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">),</span>
+		<span class="nx">$button</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#theme&#39;</span><span class="p">),</span>
+		<span class="nx">dark</span> <span class="o">=</span> <span class="nx">$button</span><span class="p">.</span><span class="nx">text</span><span class="p">(),</span>
+		<span class="nx">light</span> <span class="o">=</span> <span class="nx">dark</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;Light&#39;</span><span class="p">,</span> <span class="s1">&#39;Dark&#39;</span><span class="p">);</span>
+
+	<span class="kd">function</span> <span class="nx">toggleTheme</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">$body</span><span class="p">.</span><span class="nx">toggleClass</span><span class="p">(</span><span class="s1">&#39;light dark&#39;</span><span class="p">);</span>
+		<span class="kd">var</span> <span class="nx">text</span> <span class="o">=</span> <span class="nx">$body</span><span class="p">.</span><span class="nx">hasClass</span><span class="p">(</span><span class="s1">&#39;light&#39;</span><span class="p">)</span> <span class="o">?</span> <span class="nx">light</span> <span class="o">:</span> <span class="nx">dark</span><span class="p">;</span>
+		<span class="nx">$button</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nx">text</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="kd">function</span> <span class="nx">bindButton</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">$body</span><span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;dark&#39;</span><span class="p">);</span>
+		<span class="nx">$button</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="nx">toggleTheme</span><span class="p">);</span>
+	<span class="p">}</span>
+
+	<span class="nx">$</span><span class="p">(</span><span class="nx">bindButton</span><span class="p">);</span>
+
+<span class="p">})(</span><span class="nx">jQuery</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+</pre></div>
+</body></html>

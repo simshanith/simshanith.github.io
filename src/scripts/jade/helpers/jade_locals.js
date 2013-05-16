@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 
 	jadeLocals.includeJs = function(name) {
 		if(!_.isString(name) || !name) {
-			grunt.log.error('No script name included.')
+			grunt.log.error('No script name included.');
 			return;
 		}
 
