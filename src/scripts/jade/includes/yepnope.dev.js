@@ -40,7 +40,7 @@ yepnope([{
       });
     }
   },{ // ### Scripts
-    load: ['assets/scripts/main.js'],
+    load: ['/assets/scripts/main.js'],
     complete: function() {
       window.console && console.log && console.log('All scripts loaded.');
     }

@@ -21,8 +21,6 @@ solarized_green   =  #859900
 rebase(rebase03,rebase02,rebase01,rebase00,rebase0,rebase1,rebase2,rebase3) 
     background-color rebase03
     color rebase0
-    *
-    	color rebase0
     h1,h2,h3,h4,h5,h6
     	color rebase1
     	border-color rebase0
@@ -37,8 +35,14 @@ body, .dark
 	rebase(solarized_base3,solarized_base2,solarized_base1,solarized_base0,solarized_base00,solarized_base01,solarized_base02,solarized_base03)
 
 body, body.light, body.dark
-	h1
+	h1, h1 a, h1 a:visited
 		color solarized_blue
+		a
+			text-decoration none
+			&:hover, &:focus, &:active
+				text-decoration underline
+			&:active
+				font-style italic
 	h2
 		color solarized_green
 	h3
@@ -52,11 +56,11 @@ body, body.light, body.dark
 	
 body.light
 	button
-		button( solarized_base1 )
+		button( solarized_blue )
 		&, &:hover
-			color solarized_violet
+			color solarized_base3
 body, body.dark
 	button
 		button( solarized_base0 )
 		&, &:hover
-			color solarized_violet
+			color solarized_base03

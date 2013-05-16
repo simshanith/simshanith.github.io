@@ -37,7 +37,7 @@ yepnope([{
       });
     }
   },{ // ## Main Script
-    load: ['assets/scripts/main.min.js'],
+    load: ['/assets/scripts/main.min.js'],
     complete: function() {
       window.console && console.log && console.log('All scripts loaded.');
     }

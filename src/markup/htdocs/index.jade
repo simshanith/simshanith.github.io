@@ -1,57 +1,27 @@
 extends ../templates/main
 
 append header
-	:markdown
-		## Jade+Stylus+Grunt = amazing.
+  :markdown
+    ## Jade+Stylus+Grunt = amazing.
 
 prepend endScripts
-	a.github(href="https://github.com/simshanith/simshanith.github.io")
-		img(src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png",
-			alt="Fork me on GitHub")
+  a.github(href="https://github.com/simshanith/simshanith.github.io")
+    img(src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png",
+      alt="Fork me on GitHub")
 
 block mainContent
-	p
-		button#theme Switch to Light
-	:markdown
-		Node.JS provides a powerful platform for programming the generation of static HTML files.
-		This site is the result of an example build system.
+  p
+    button#theme Switch to Light
+  :markdown
+    Node.JS provides a powerful platform for programming the generation of static HTML files.
+    This site is the result of an example build system.
 
-		#### [Source Code Birds-eye](./docs/source-code/)
+    #### [Source Code Birds-eye](./docs/source-code/)
 
-	#features
-		h3 Features
-		#current
-			:markdown
-				#### Current:
+  #features
+    h3 Features
+    #current
+      include ../../../docs/features.marked.html
 
-				* ##### Markup
-					* HTML5 Boilerplate inspired template
-					* Inlined yepnope script
-					* Jade Template Inheritance, Includes, and Locals
-				* ##### Styles
-					* Fluidity Stylus framework
-					* Roots.cx Stylus mixins
-					* Solarized colors adapted from LESS
-					* Can include vendor css as needed
-					* Mobile-Friendly with responsive breakpoint
-				* ##### Scripts
-					* Runs clientside scripts through Uglify linting & minification
-					* Scripts are injected with yepnope
-				* ##### Tests
-					* Build process testing with Mocha, Should, and Sinon
-					* Automated on GitHub push with Travis-CI
-					* [![Build Status](https://travis-ci.org/simshanith/simshanith.github.io.png)](https://travis-ci.org/simshanith/simshanith.github.io)
-				* ##### Misc
-					* Grunt Task Chains for scripts, styles, and markup
-					* Grunt Watch for kicking off tasks
-					* Grunt Connect for serving static site over HTTP
-					* Grunt Pygmentize for Generating a Birds-eye Source Code View
-
-		#planned
-			:markdown
-				#### Planned:
-
-				* JavaScript dependency management
-				* More CoffeeScript
-				* More Links
-				* More Tests, probably using Jasmine
+    #planned
+      include ../../../docs/addendum.marked.html

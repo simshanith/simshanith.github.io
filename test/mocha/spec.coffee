@@ -80,8 +80,8 @@ describe 'Jade Locals Module', ->
 		#### Jade `include` should handle this automagically with `.js` extension...
 		it 'that wraps a Javascript file when found by name', ->
 			html 			= localsObj.includeJs 'yepnope'
-			htmlStart = html.slice 0, startTag.length
-			htmlEnd		= html.slice -1 * endTag.length
+			htmlStart = html.slice(0,startTag.length)
+			htmlEnd		= html.slice(-endTag.length)
 
 			htmlStart.should.equal startTag
 			htmlEnd.should.equal endTag

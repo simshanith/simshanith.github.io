@@ -27,5 +27,9 @@ module.exports = function(grunt) {
 		return wrapScript(script);
 	};
 
+	jadeLocals.includeMarkdown = function(){
+		return grunt.file.read(grunt.config('markdownPath'));
+	};
+
 	return jadeLocals;
 };

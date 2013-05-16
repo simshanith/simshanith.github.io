@@ -20,7 +20,8 @@
     </head>
     <body>
         <div id="wrapper">
-            <header id="header"><h1>Hello World.</h1>
+            <header id="header">
+                <h1><a href="/">Hello World.</a></h1>
                 <h2>Jade+Stylus+Grunt = amazing.</h2>
             </header>
             <section id="mainContent">
@@ -31,54 +32,93 @@
                 <h4><a href="./docs/source-code/">Source Code Birds-eye</a></h4>
                 <div id="features">
                     <h3>Features</h3>
-                    <div id="current"><h4>Current:</h4>
+                    <div id="current"><h4>Currently Supported Features</h4>
+                        <p>This project breaks up source files across the three major divisions of modern Web development:</p>
                         <ul>
-                            <li><h5>Markup</h5>
-                                <ul>
-                                    <li>HTML5 Boilerplate inspired template</li>
-                                    <li>Inlined yepnope script</li>
-                                    <li>Jade Template Inheritance, Includes, and Locals</li>
+                            <li>Scripts,</li>
+                            <li>Styles,</li>
+                            <li>and Markup</li>
+                        </ul>
+                        <h5>Scripts</h5>
+                        <ul>
+                            <li><a href="https://github.com/gruntjs/grunt-contrib-jshint">Grunt-powered linting</a>
+                                with
+                                <a href="http://jshint.com/">JShint</a></li>
+                            <li><a href="https://github.com/gruntjs/grunt-contrib-uglify">Grunt-powered minification</a>
+                                with
+                                <a href="http://lisperator.net/uglifyjs/">UglifyJS</a></li>
+                            <li>Grunt managed assets provide vendor, development, and production scripts (yay
+                                <a href="https://github.com/gruntjs/grunt-contrib-copy">automated copying</a>)</li>
+                            <li>Asynchronously loaded in the browser with
+                                <a href="http://yepnopejs.com/">yepnope</a></li>
+                        </ul>
+                        <h5>Styles</h5>
+                        <ul>
+                            <li><a href="http://learnboost.github.io/stylus/">Stylus</a>
+                                preprocessing language</li>
+                            <li>Includes both
+                                <a href="http://fluiditycss.com/">Fluidity</a>
+                                &amp;
+                                <a href="http://roots.cx/axis/">Axis</a>
+                                Frameworks</li>
+                            <li>Design adapted from LESS snippet for
+                                <a href="http://ethanschoonover.com/solarized">Solarized</a>
+                                syntax highlighting color scheme.</li>
+                            <li>Responsive Grid setup with variable breakpoints.<ul>
+                                    <li>Currently using
+                                        <a href="http://fluiditycss.com/#grid">Fluidity&#39;s semantic grid system</a></li>
+                                    <li>Roots / Axis offers
+                                        <strong>the</strong>
+                                        <a href="http://semantic.gs/">Semantic Grid System</a></li>
                                 </ul>
                             </li>
-                            <li><h5>Styles</h5>
-                                <ul>
-                                    <li>Fluidity Stylus framework</li>
-                                    <li>Roots.cx Stylus mixins</li>
-                                    <li>Solarized colors adapted from LESS</li>
-                                    <li>Can include vendor css as needed</li>
-                                    <li>Mobile-Friendly with responsive breakpoint</li>
-                                </ul>
-                            </li>
-                            <li><h5>Scripts</h5>
-                                <ul>
-                                    <li>Runs clientside scripts through Uglify linting &amp; minification</li>
-                                    <li>Scripts are injected with yepnope</li>
-                                </ul>
-                            </li>
-                            <li><h5>Tests</h5>
-                                <ul>
-                                    <li>Build process testing with Mocha, Should, and Sinon</li>
-                                    <li>Automated on GitHub push with Travis-CI</li>
-                                    <li><a href="https://travis-ci.org/simshanith/simshanith.github.io"><img alt="Build Status" src="https://travis-ci.org/simshanith/simshanith.github.io.png"></a></li>
-                                </ul>
-                            </li>
-                            <li><h5>Misc</h5>
-                                <ul>
-                                    <li>Grunt Task Chains for scripts, styles, and markup</li>
-                                    <li>Grunt Watch for kicking off tasks</li>
-                                    <li>Grunt Connect for serving static site over HTTP</li>
-                                    <li>Grunt Pygmentize for Generating a Birds-eye Source Code View</li>
-                                </ul>
-                            </li>
+                            <li>Can use vanilla CSS alongside Stylus</li>
+                        </ul>
+                        <h5>Markup</h5>
+                        <ul>
+                            <li><a href="http://html5boilerplate.com/">HTML5 Boilerplate</a>
+                                inspired template</li>
+                            <li>Extensive use of
+                                <a href="http://jade-lang.com">Jade</a></li>
+                            <li>Locals module can provide helpers &amp; is testable</li>
+                            <li>Can inline JavaScript files configured by build type</li>
+                            <li>Works with
+                                <a href="http://daringfireball.net/projects/markdown/">Markdown</a></li>
+                            <li>Processes HTML generated with
+                                <a href="http://pygments.org">Pygments</a></li>
                         </ul>
                     </div>
-                    <div id="planned"><h4>Planned:</h4>
+                    <div id="planned"><h4>Other Stuff in the Works</h4>
+                        <p>Behind this HTML, CSS, and JS veneer there&#39;s quite a bit going on. It&#39;d be nice to take some of my logic and put together some grunt plugin(s).</p>
+                        <p>Potential Grunt Tasks:</p>
                         <ul>
-                            <li>JavaScript dependency management</li>
-                            <li>More CoffeeScript</li>
-                            <li>More Links</li>
-                            <li>More Tests, probably using Jasmine</li>
+                            <li>Jade One-to-Many<ul>
+                                    <li>Compiles one source template with different data to different destinations</li>
+                                </ul>
+                            </li>
+                            <li>Pygments<ul>
+                                    <li>Provide a multitask wrapper to syntax highlight for the Web</li>
+                                </ul>
+                            </li>
+                            <li>Markdown<ul>
+                                    <li>Because a proper simple multitask is yet to exist
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
+                        <p>Also, now up &amp; running, is a test suite for the build processes.
+                            <a href="http://visionmedia.github.io/mocha/">Mocha</a>,
+                            <a href="https://github.com/visionmedia/should.js/">Should</a>, and
+                            <a href="http://sinonjs.org/">Sinon</a>
+                            test my Gruntfile and Jade Locals module to ensure proper compilation of files.</p>
+                        <p>The tests are written in
+                            <a href="http://coffeescript.org">CoffeeScript</a>
+                            for gorgeous syntax and legibility, then compiled side by side to JavaScript. The results of these tests are publicly available on
+                            <a href="http://travis-ci.org/simshanith/simshanith.github.io">Travis.CI</a>. The build status is now:</p>
+                        <p><a href="https://travis-ci.org/simshanith/simshanith.github.io"><img alt="Build Status" src="https://travis-ci.org/simshanith/simshanith.github.io.png"></a></p>
+                        <p>It&#39;d be nice to get
+                            <a href="http://pivotal.github.io/jasmine/">Jasmine</a>
+                            going for client-side code coverage.</p>
                     </div>
                 </div>
             </section>
@@ -127,7 +167,7 @@
                         });
                     }
                 }, { // ## Main Script
-                    load: ['assets/scripts/main.min.js'],
+                    load: ['/assets/scripts/main.min.js'],
                     complete: function () {
                         window.console && console.log && console.log('All scripts loaded.');
                     }
