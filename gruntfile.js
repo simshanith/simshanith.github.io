@@ -256,7 +256,7 @@ module.exports = function(grunt) {
       },
       mochaTest: {
         files: ['gruntfile.js', 'src/scripts/jade/helpers/jade_locals.js','test/{jasmine,mocha}/**/*.coffee'],
-        tasks: ['test']
+        tasks: ['test:spec']
       },
       pygments: {
         files: ['src/{markup,scripts}/**/*.{jade,js}', '!**/vendor/*'],
@@ -275,7 +275,12 @@ module.exports = function(grunt) {
         growl: true,
         compilers: 'coffee-script'
       },
-      test: 'test/mocha/spec.js'
+      test: {
+        src: 'test/mocha/spec.js',
+        options: {
+          reporter: 'list'
+        }
+      }
     }
   });
   // END `grunt.initConfig`
@@ -316,8 +321,10 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('test', 'Build and run tests.',function(){
+  grunt.registerTask('test', 'Build and run tests.',function(flag){
     grunt.log.subhead('TESTING');
+    var reporter = _.isString(flag) && flag || undefined;
+    reporter && grunt.config('cafemocha.test.options.reporter',reporter);
     chainTasks(['coffee:tests', 'cafemocha:test']);
   });
 
@@ -329,7 +336,7 @@ module.exports = function(grunt) {
     return 'clean:gen'+_.capitalize(target);
   }
 
-  var mainTasks = ['scripts', 'styles', 'markup', 'test'];
+  var mainTasks = ['scripts', 'styles', 'markup'];
 
   /*
   No longer necessary with build directory.

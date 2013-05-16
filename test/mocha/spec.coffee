@@ -1,93 +1,100 @@
 # Framework Deps
-
 mocha       = require 'mocha'
 should      = require 'should'
-sinon		= require 'sinon'
+sinon       = require 'sinon'
 
+require 'mocha-sinon'
+
+# Grunt Setup, modelled off of `mocha-sinon` plugin
+## Gives fresh instance of grunt config for each test.
+grunt = null
 
 gruntInit = ->
 	grunt = require 'grunt'
-	gruntfile	= require '../../gruntfile.js'
+	gruntfile   = require '../../gruntfile.js'
 	gruntfile grunt
 	return grunt
 
+beforeEach ->
+	grunt = gruntInit()
+
+# Gruntfile Suite.
+## Currently just checks basic templating and file io capabilities.
+
 describe 'Gruntfile', ->
 
-	grunt = null
-
-	beforeEach ->
-		grunt = gruntInit()
-
 	it 'reads package.json', ->
-		(grunt.config 'meta.name').should.equal 'simshanith.github.io'
+		should.equal 'simshanith.github.io', grunt.config('meta.name')
 
-
+# Jade Locals suite.
+## Checks that Jade helper functions work as expected.
 
 describe 'Jade Locals Module', ->
-	
-	jade_locals = require '../../src/markup/helpers/scripts/jade_locals.js'
-	grunt = null
 
-	# Get a fresh instance of Grunt for each test.
-	beforeEach ->
-		grunt = gruntInit()
+	#### Get a shared instance of the jade locals object.
+	#### Pass a reference to grunt into the module.
+
+	jade_locals = require '../../src/markup/helpers/scripts/jade_locals.js'
+	localsObj = null
+
+	before ->
+		localsObj = jade_locals grunt
 
 	it 'is a function', ->
 		jade_locals.should.be.an.instanceOf Function
 
-	it 'takes a reference to grunt', ->
-		(jade_locals grunt).should.be.ok
+	it 'returns a locals object', ->
+		localsObj.should.be.an.instanceOf Object
 
-	describe 'returns a locals object', ->
+	it 'exposes an includeJs function', ->
+		localsObj.includeJs.should.be.an.instanceOf Function
 
-		locals = null
-		
-		before ->
-			locals = jade_locals grunt
+	describe 'provides `includeJs` helper function', ->
 
-		it 'that exists', ->
-			locals.should.be.an.instanceOf Object
+		#### Define some expectations.
+		startTag	= '<script type="text/javascript">'
+		endTag		=	'</script>'
 
-		it 'that exposes an includeJs function', ->
-			locals.includeJs.should.be.an.instanceOf Function
+		#### Stub `grunt.log.error` to suppress intentonal warnings.
+		beforeEach ->
+			sinon.stub grunt.log, 'error'
 
-		describe 'which exposes includeJs', ->
+		#### Teardown sinon stub.
+		afterEach ->
+			grunt.log.error.restore()
 
-			beforeEach ->
-				sinon.stub grunt.log, 'error'
-				sinon.spy locals, 'includeJs'
+		#### Error / fail task when trying to include missing file.
+		it 'that throws an error when Javascript file is not found by name', ->
+			missingFile = ->
+				html = localsObj.includeJs 'what'
+			missingFile.should.throw
 
-			afterEach ->
-				locals.includeJs.restore()
-				grunt.log.error.restore()
+		#### Error but continue compiling when including nothing.
+		it 'that logs an error when called without a name', ->
+			localsObj.includeJs()
+			grunt.log.error.called.should.be.true
 
-			it 'that logs an error when called without a name', ->
-				locals.includeJs()
-				grunt.log.error.called.should.be.ok
+		it 'that returns undefined when called without a name', ->
+			should.strictEqual undefined, localsObj.includeJs()
 
-			it 'that returns undefined when called without a name', ->
-				locals.includeJs()
-				locals.includeJs.returned(sinon.match.same undefined).should.be.ok
+		#### Jade `include` should handle this automagically with `.js` extension...
+		it 'that wraps a Javascript file when found by name', ->
+			html 			= localsObj.includeJs 'yepnope'
+			htmlStart = html.slice 0, startTag.length
+			htmlEnd		= html.slice -1 * endTag.length
 
-			it 'that wraps a Javascript file when found by name', ->
-				html = locals.includeJs 'yepnope'
-				html.should.include '<script type="text/javascript">'
-				html.should.include '</script>'
+			htmlStart.should.equal startTag
+			htmlEnd.should.equal endTag
 
-			it 'that throws an error when Javascript file is not found by name', ->
-				missingFile = ->
-					html = locals.includeJs 'what'	
-				missingFile.should.throw
+		#### ...but Jade `include` cannot handle variables, so this is a bonus.
+		it 'that looks up different files based on grunt `build` config', ->
+			name = 'yepnope'
+			
+			htmlProd = localsObj.includeJs name
+			grunt.config 'build', 'dev'
+			htmlDev = localsObj.includeJs name
 
-			it 'that looks up different files based on grunt `build` config', ->
-				name = 'yepnope'
-				htmlProd = locals.includeJs name
-				grunt.config 'build', 'dev'
-				htmlDev = locals.includeJs name
+			htmlProd.should.not.equal htmlDev
 
-				htmlProd.should.not.equal htmlDev
-
-				htmlDev.should.include '<script type="text/javascript">'
-				htmlDev.should.include '</script>'
-				htmlProd.should.include '<script type="text/javascript">'
-				htmlProd.should.include '</script>'
+			htmlDev.should.include startTag
+			htmlProd.should.include startTag
