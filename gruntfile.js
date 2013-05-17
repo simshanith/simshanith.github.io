@@ -47,10 +47,15 @@ module.exports = function(grunt) {
         dest: 'docs/source-code/source-code.html',
         options: {
           process: function(src, filepath){
-            var sourcePath = filepath.slice(0,-5).replace('build/source-code', 'src');
-            if(_.contains(filepath, 'docs/'))
+            var sourcePath = filepath.slice(0,-5).replace('build/source-code/', 'src/');
+
+            //if(_.contains(filepath, 'docs/'))
+            //    sourcePath = sourcePath.replace('src/','docs/');
+
             var repoPath = 'https://github.com/simshanith/simshanith.github.io/tree/master/';
-            var gitHubLink = ['<a href="',repoPath,sourcePath,'">',sourcePath,'</a>'].join('');
+            console.log('repo path: '+repoPath);
+            var gitHubLink = ['<a href="', repoPath, sourcePath,'">',sourcePath,'</a>'].join('');
+            console.log('gh link: '+gitHubLink);
             var fileHeader = ['<h3><pre>', gitHubLink, '</pre></h3>'].join('');
             return fileHeader+src;
           }
@@ -103,9 +108,9 @@ module.exports = function(grunt) {
           src: ['**/*.styl', '!**/_*'], // Actual pattern(s) to match.
           dest: 'build/styles/stylus/',   // Destination path prefix.
           ext: '.css',   // Dest filepaths will have this extension.
-          filter:  function(src){
-            var stylusPath = grunt.config('stylusPath');
-            return stylusPath ? grunt.file.isMatch(stylusPath, src) : true;
+          filter:  function(src) {
+            var stylusFilter = grunt.config('stylusFilter');
+            return stylusFilter ? grunt.file.isMatch(stylusFilter, src) : true;
           }
         }]
       }
@@ -121,7 +126,11 @@ module.exports = function(grunt) {
           cwd: 'src/markup/htdocs/',      // Src matches are relative to this path.
           src: '**/*.jade', // Actual pattern(s) to match.
           dest: 'build/markup/jade/',   // Destination path prefix.
-          ext: '.html'   // Dest filepaths will have this extension.
+          ext: '.html',   // Dest filepaths will have this extension.
+          filter: function(src) {
+            var jadeFilter = grunt.config('jadeFilter');
+            return jadeFilter ? grunt.file.isMatch(jadeFilter, src) : true;
+          }
         }]
       },
       wrapMarkdown: {
@@ -373,7 +382,7 @@ module.exports = function(grunt) {
 
 
   grunt.registerTask('markdown', 'Generate HTML from Markdown source', function(){
-    var sourceFiles = ['**/*.{md,markdown}'],
+    var sourceFiles = ['**/*.markdown'],
         expandOpts  = {cwd: 'src/markdown/', flatten: false, ext: '.marked.html'},
         targetDir   = 'docs/',
         fileMatches = grunt.file.expandMapping(sourceFiles, targetDir, expandOpts);
