@@ -1,3 +1,5 @@
+var marked = require('marked');
+
 module.exports = function(grunt) {
 	// Grunt loaded for utilities; do not configure here. 
 	// Reading from configuration may not work either,
@@ -5,6 +7,12 @@ module.exports = function(grunt) {
 	var _ = grunt.util._;
 
 	var jadeLocals = {};
+
+	// Expose grunt & _ to Jade.
+	//jadeLocals.grunt = grunt;
+	jadeLocals._ = _
+
+
 
 	jadeLocals.includeJs = function(name) {
 		if(!_.isString(name) || !name) {
@@ -27,9 +35,18 @@ module.exports = function(grunt) {
 		return wrapScript(script);
 	};
 
-	jadeLocals.includeMarkdown = function(){
-		return grunt.file.read(grunt.config('markdownPath'));
+	jadeLocals.includeMarkdown = function(markdownPath) {
+		marked.setOptions({smartLists: true});
+
+		markdownPath = markdownPath || grunt.config('markdownPath');
+
+		var src  = markdownPath && grunt.file.read(markdownPath),
+			output = src && marked(src);
+
+		return output || '';
 	};
+
+	grunt.log.writeln(_.keys('jadeLocals').join(', '));
 
 	return jadeLocals;
 };

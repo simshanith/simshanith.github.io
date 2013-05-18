@@ -18,6 +18,11 @@ gruntInit = ->
 beforeEach ->
 	grunt = gruntInit()
 
+
+afterEach ->
+	grunt.event.removeAllListeners()
+	grunt = null
+
 # Gruntfile Suite.
 ## Currently just checks basic templating and file io capabilities.
 
@@ -31,14 +36,17 @@ describe 'Gruntfile', ->
 
 describe 'Jade Locals Module', ->
 
-	#### Get a shared instance of the jade locals object.
+	#### Get an instance of the jade locals object.
 	#### Pass a reference to grunt into the module.
 
 	jade_locals = require '../../src/markup/helpers/scripts/jade_locals.js'
 	localsObj = null
 
-	before ->
+	beforeEach ->
 		localsObj = jade_locals grunt
+
+	afterEach ->
+		localsObj = null
 
 	it 'is a function', ->
 		jade_locals.should.be.an.instanceOf Function
@@ -48,6 +56,9 @@ describe 'Jade Locals Module', ->
 
 	it 'exposes an includeJs function', ->
 		localsObj.includeJs.should.be.an.instanceOf Function
+
+	it 'exposes an includeMarkdown function', ->
+		localsObj.includeMarkdown.should.be.an.instanceOf Function
 
 	describe 'provides `includeJs` helper function', ->
 
@@ -98,3 +109,19 @@ describe 'Jade Locals Module', ->
 
 			htmlDev.should.include startTag
 			htmlProd.should.include startTag
+
+
+	describe 'provides `includeMarkdown` helper function', ->
+
+		#### Spy on `grunt.config` & `grunt.file.read`.
+		beforeEach ->
+			sinon.spy grunt, 'config'
+			sinon.spy grunt.file, 'read'
+
+		#### Teardown sinon stub.
+		afterEach ->
+			grunt.config.restore()
+			grunt.file.read.restore()
+
+		it 'that reads markdown from the Grunt config variable `markdownPath`', ->
+			true.should.be.true

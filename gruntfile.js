@@ -1,5 +1,4 @@
-var querystring = require('querystring'),
-    marked      = require('marked');
+var querystring = require('querystring');
 
 module.exports = function(grunt) {
   var _ = grunt.util._;
@@ -53,9 +52,9 @@ module.exports = function(grunt) {
             //    sourcePath = sourcePath.replace('src/','docs/');
 
             var repoPath = 'https://github.com/simshanith/simshanith.github.io/tree/master/';
-            console.log('repo path: '+repoPath);
+            //console.log('repo path: '+repoPath);
             var gitHubLink = ['<a href="', repoPath, sourcePath,'">',sourcePath,'</a>'].join('');
-            console.log('gh link: '+gitHubLink);
+            //console.log('gh link: '+gitHubLink);
             var fileHeader = ['<h3><pre>', gitHubLink, '</pre></h3>'].join('');
             return fileHeader+src;
           }
@@ -135,7 +134,7 @@ module.exports = function(grunt) {
       },
       wrapMarkdown: {
         src: 'src/markup/templates/markdown.jade',
-        dest: '<%= markdownPath && markdownPath.replace(".marked","") %>',
+        dest: '<%= markdownPath && markdownPath.replace( ".markdown" , ".html" ).replace( "src/markup/htdocs/" , "" ) %>'
       }
     },
     bgShell: {
@@ -348,7 +347,8 @@ module.exports = function(grunt) {
   grunt.registerTask('test', 'Build and run tests.',function(flag){
     grunt.log.subhead('TESTING');
     var reporter = _.isString(flag) && flag || undefined;
-    reporter && grunt.config('cafemocha.test.options.reporter',reporter);
+    if(reporter)
+      grunt.config('cafemocha.test.options.reporter',reporter);
     chainTasks(['coffee:tests', 'cafemocha:test']);
   });
 
@@ -383,30 +383,26 @@ module.exports = function(grunt) {
 
   grunt.registerTask('markdown', 'Generate HTML from Markdown source', function(){
     var sourceFiles = ['**/*.markdown'],
-        expandOpts  = {cwd: 'src/markdown/', flatten: false, ext: '.marked.html'},
+        expandOpts  = {cwd: 'src/', flatten: false, ext: '.marked.html'},
         targetDir   = 'docs/',
         fileMatches = grunt.file.expandMapping(sourceFiles, targetDir, expandOpts);
 
     grunt.log.subhead('Found '+fileMatches.length+' source files to compile.');
 
-    marked.setOptions({smartLists: true});
-
-    _.each(fileMatches, function(pair){
-      var src  = grunt.file.read(pair.src),
-        output = marked(src);
-
-      grunt.file.write(pair.dest, output);
-
+    var tasks = _.map(fileMatches, function(pair){
       var pairStr = querystring.stringify(pair);
-      grunt.task.run(['_marked:'+pairStr, 'jade:wrapMarkdown']);
+      return ['_marked:'+pairStr, 'jade:wrapMarkdown'];
     });
+
+    grunt.task.run(_.flatten(tasks));
+
 
   });
 
   grunt.registerTask('_marked', function(pairStr) {
     var pair = querystring.parse(pairStr);
-    //grunt.log.writeln(pair.dest);
-    grunt.config('markdownPath', pair.dest);
+    //grunt.log.writeln(pair.src);
+    grunt.config('markdownPath', pair.src);
   });
 
   grunt.registerTask('_pyg', 'internal grunt config', function(pairStr){

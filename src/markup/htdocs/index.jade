@@ -1,6 +1,7 @@
 extends ../templates/main
 
-append header
+block header
+  include ../includes/header
   :markdown
     ## Jade+Stylus+Grunt = amazing.
 
@@ -21,7 +22,11 @@ block mainContent
   #features
     h3 Features
     #current
-      include ../../../docs/features.marked.html
+      | 
+      != includeMarkdown('src/markup/htdocs/docs/features.markdown')
+      | 
 
     #planned
-      include ../../../docs/addendum.marked.html
+      | 
+      != includeMarkdown('src/markup/htdocs/docs/addendum.markdown')
+      | 

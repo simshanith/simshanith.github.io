@@ -70,7 +70,8 @@
                 <h3><pre><a href="https://github.com/simshanith/simshanith.github.io/tree/master/src/markup/htdocs/index.jade">src/markup/htdocs/index.jade</a></pre></h3>
                 <div class="highlight"><pre><span class="nt">extends</span> ../templates/main
 
-<span class="nt">append</span> header
+<span class="nt">block</span> header
+  <span class="nt">include</span> ../includes/header
   <span class="nd">:markdown</span>
     <span class="nd">## Jade+Stylus+Grunt = amazing.</span>
 
@@ -91,17 +92,21 @@
   <span class="nf">#features</span>
     <span class="nt">h3</span> Features
     <span class="nf">#current</span>
-      <span class="nt">include</span> ../../../docs/features.marked.html
+      | 
+      <span class="err">!= </span><span class="nt">includeMarkdown</span>(<span class="err">&#39;</span><span class="na">src</span><span class="err">/</span><span class="na">markup</span><span class="err">/</span><span class="na">htdocs</span><span class="err">/</span><span class="na">docs</span><span class="err">/</span><span class="na">features</span><span class="err">.</span><span class="na">markdown</span><span class="err">&#39;</span>)
+      | 
 
     <span class="nf">#planned</span>
-      <span class="nt">include</span> ../../../docs/addendum.marked.html
+      | 
+      <span class="err">!= </span><span class="nt">includeMarkdown</span>(<span class="err">&#39;</span><span class="na">src</span><span class="err">/</span><span class="na">markup</span><span class="err">/</span><span class="na">htdocs</span><span class="err">/</span><span class="na">docs</span><span class="err">/</span><span class="na">addendum</span><span class="err">.</span><span class="na">markdown</span><span class="err">&#39;</span>)
+      | 
 </pre></div>
                 <h3><pre><a href="https://github.com/simshanith/simshanith.github.io/tree/master/src/markup/includes/endScripts.jade">src/markup/includes/endScripts.jade</a></pre></h3>
                 <div class="highlight"><pre><span class="c">//-</span>
 	<span class="c">MODERNIZR / YEPNOPE SCRIPT LOADING</span>
 	<span class="c">Jade currently doesn&#39;t wrap included JS files properly,</span>
 	<span class="c">so we have to do so manually with unescaped function output.</span>
-<span class="err">!= </span><span class="nt">includeJs</span>(<span class="err">&#39;</span><span class="na">yepnope</span><span class="err">&#39;</span>);
+<span class="err">!= </span><span class="nt">includeJs</span>(<span class="err">&#39;</span><span class="na">yepnope</span><span class="err">&#39;</span>)
 | 
 </pre></div>
                 <h3><pre><a href="https://github.com/simshanith/simshanith.github.io/tree/master/src/markup/includes/footer.jade">src/markup/includes/footer.jade</a></pre></h3>
@@ -168,17 +173,26 @@
 <span class="nt">block</span> mainContent
   <span class="nt">p</span>
     <span class="nt">button</span><span class="nf">#theme</span> Switch to Light
-    
+    | 
     <span class="err">!= </span><span class="nt">includeMarkdown</span>()
+    | 
 </pre></div>
                 <h3><pre><a href="https://github.com/simshanith/simshanith.github.io/tree/master/src/scripts/jade/helpers/jade_locals.js">src/scripts/jade/helpers/jade_locals.js</a></pre></h3>
-                <div class="highlight"><pre><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">grunt</span><span class="p">)</span> <span class="p">{</span>
+                <div class="highlight"><pre><span class="kd">var</span> <span class="nx">marked</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;marked&#39;</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">grunt</span><span class="p">)</span> <span class="p">{</span>
 	<span class="c1">// Grunt loaded for utilities; do not configure here. </span>
 	<span class="c1">// Reading from configuration may not work either,</span>
 	<span class="c1">// unless done at task runtime; e.g. in a function.</span>
 	<span class="kd">var</span> <span class="nx">_</span> <span class="o">=</span> <span class="nx">grunt</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">_</span><span class="p">;</span>
 
 	<span class="kd">var</span> <span class="nx">jadeLocals</span> <span class="o">=</span> <span class="p">{};</span>
+
+	<span class="c1">// Expose grunt &amp; _ to Jade.</span>
+	<span class="c1">//jadeLocals.grunt = grunt;</span>
+	<span class="nx">jadeLocals</span><span class="p">.</span><span class="nx">_</span> <span class="o">=</span> <span class="nx">_</span>
+
+
 
 	<span class="nx">jadeLocals</span><span class="p">.</span><span class="nx">includeJs</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
 		<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">_</span><span class="p">.</span><span class="nx">isString</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="o">||</span> <span class="o">!</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
@@ -201,9 +215,18 @@
 		<span class="k">return</span> <span class="nx">wrapScript</span><span class="p">(</span><span class="nx">script</span><span class="p">);</span>
 	<span class="p">};</span>
 
-	<span class="nx">jadeLocals</span><span class="p">.</span><span class="nx">includeMarkdown</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
-		<span class="k">return</span> <span class="nx">grunt</span><span class="p">.</span><span class="nx">file</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="nx">grunt</span><span class="p">.</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;markdownPath&#39;</span><span class="p">));</span>
+	<span class="nx">jadeLocals</span><span class="p">.</span><span class="nx">includeMarkdown</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">markdownPath</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">marked</span><span class="p">.</span><span class="nx">setOptions</span><span class="p">({</span><span class="nx">smartLists</span><span class="o">:</span> <span class="kc">true</span><span class="p">});</span>
+
+		<span class="nx">markdownPath</span> <span class="o">=</span> <span class="nx">markdownPath</span> <span class="o">||</span> <span class="nx">grunt</span><span class="p">.</span><span class="nx">config</span><span class="p">(</span><span class="s1">&#39;markdownPath&#39;</span><span class="p">);</span>
+
+		<span class="kd">var</span> <span class="nx">src</span>  <span class="o">=</span> <span class="nx">markdownPath</span> <span class="o">&amp;&amp;</span> <span class="nx">grunt</span><span class="p">.</span><span class="nx">file</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="nx">markdownPath</span><span class="p">),</span>
+			<span class="nx">output</span> <span class="o">=</span> <span class="nx">src</span> <span class="o">&amp;&amp;</span> <span class="nx">marked</span><span class="p">(</span><span class="nx">src</span><span class="p">);</span>
+
+		<span class="k">return</span> <span class="nx">output</span> <span class="o">||</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
 	<span class="p">};</span>
+
+	<span class="nx">grunt</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">writeln</span><span class="p">(</span><span class="nx">_</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="s1">&#39;jadeLocals&#39;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">));</span>
 
 	<span class="k">return</span> <span class="nx">jadeLocals</span><span class="p">;</span>
 <span class="p">};</span>
