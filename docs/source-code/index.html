@@ -188,8 +188,9 @@
 
 	<span class="kd">var</span> <span class="nx">jadeLocals</span> <span class="o">=</span> <span class="p">{};</span>
 
-	<span class="c1">// Expose grunt &amp; _ to Jade.</span>
-	<span class="c1">//jadeLocals.grunt = grunt;</span>
+	<span class="c1">// Expose grunt config &amp; _ to Jade.</span>
+	<span class="nx">jadeLocals</span><span class="p">.</span><span class="nx">grunt</span> <span class="o">=</span> <span class="p">{};</span>
+	<span class="nx">jadeLocals</span><span class="p">.</span><span class="nx">grunt</span><span class="p">.</span><span class="nx">config</span> <span class="o">=</span> <span class="nx">grunt</span><span class="p">.</span><span class="nx">config</span><span class="p">;</span>
 	<span class="nx">jadeLocals</span><span class="p">.</span><span class="nx">_</span> <span class="o">=</span> <span class="nx">_</span>
 
 
