@@ -8,8 +8,9 @@ module.exports = function(grunt) {
 
 	var jadeLocals = {};
 
-	// Expose grunt & _ to Jade.
-	//jadeLocals.grunt = grunt;
+	// Expose grunt config & _ to Jade.
+	jadeLocals.grunt = {};
+	jadeLocals.grunt.config = grunt.config;
 	jadeLocals._ = _
 
 
