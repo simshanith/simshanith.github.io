@@ -290,7 +290,16 @@ module.exports = function(grunt) {
       site: {}
     },
     jasmine: {
-
+      options: {
+        specs: ['test/jasmine/**/*.js'],
+        vendor: ['src/scripts/vendor/*.js']
+      },
+      dev: {
+        src: ['src/scripts/lib/main.js']
+      },
+      compiled: {
+        src: ['assets/scripts/main.min.js']
+      }
     },
     cafemocha: {
       options: {
@@ -349,7 +358,7 @@ module.exports = function(grunt) {
     var reporter = _.isString(flag) && flag || undefined;
     if(reporter)
       grunt.config('cafemocha.test.options.reporter',reporter);
-    chainTasks(['coffee:tests', 'cafemocha:test']);
+    chainTasks(['coffee:tests', 'cafemocha:test', 'jasmine']);
   });
 
   function cleanBuild (target){
