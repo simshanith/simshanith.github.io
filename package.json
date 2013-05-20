@@ -31,8 +31,10 @@
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-contrib-watch": "git://github.com/gruntjs/grunt-contrib-watch.git",
     "grunt-template-helper": "~0.1.5",
+    "jade": "~0.30.0",
     "marked": "~0.2.8",
-    "roots-css": "~0.1.11"
+    "roots-css": "~0.1.11",
+    "stylus": "~0.32.1"
   },
   "devDependencies": {
     "fluidity": "~0.1.5",
