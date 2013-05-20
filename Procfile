@@ -1,1 +1,1 @@
-web: grunt --verbose heroku connect:site
+web: grunt --verbose heroku connect:site:keepalive
