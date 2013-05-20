@@ -478,6 +478,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('heroku', 'Confirm grunt cli works.', function(){
     grunt.log.ok('`grunt heroku` called successfully!');
+    grunt.log.subhead('process.env.PORT: '+process.env.PORT);
     grunt.log.writeln(port);
   });
 
