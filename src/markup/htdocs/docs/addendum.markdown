@@ -18,3 +18,5 @@ The tests are written in [CoffeeScript](http://coffeescript.org) for gorgeous sy
 [![Build Status](https://travis-ci.org/simshanith/simshanith.github.io.png)](https://travis-ci.org/simshanith/simshanith.github.io)
 
 It'd be nice to get [Jasmine](http://pivotal.github.io/jasmine/) going for client-side code coverage.
+
+This included markdown file lives at [/docs/addendum.html](/docs/addendum.html) and [/src/markup/htdocs/docs/addendum.markdown](https://github.com/simshanith/simshanith.github.io/tree/master/src/markup/htdocs/docs/addendum.markdown).

@@ -1,10 +1,10 @@
 {
   "name": "simshanith.github.io",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Simshanith GitHub Pages, powered by Node, Grunt, Jade, and Stylus.",
   "scripts": {
     "start": "grunt connect:site:keepalive",
-    "test": "grunt test"
+    "test": "grunt test --verbose"
   },
   "author": {
     "name": "Shane Daniel",

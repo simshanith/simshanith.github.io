@@ -290,7 +290,7 @@ module.exports = function(grunt) {
         tasks: ['styles']
       },
       markup: {
-        files: ['src/markup/**/*{.jade,.js}', 'src/markdown/**/*.markdown'],
+        files: ['src/markup/**/*{.jade,.js,.markdown}'],
         tasks: ['markup']
       },
       mochaTest: {
