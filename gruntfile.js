@@ -77,9 +77,21 @@ module.exports = function(grunt) {
     },
     jshint: {
       options: {
-        expr: true
+        expr: true,
+        maxcomplexity: 5
       },
-      all: ['gruntfile.js', 'src/scripts/**/*.js', '!src/scripts/vendor/**']
+      browser: {
+        src: ['src/scripts/lib/**/*.js', 'src/scripts/jade/includes/**/*.js']
+      },
+      build: {
+        src: ['gruntfile.js', 'src/scripts/jade/helpers/**/*.js']
+      },
+      tests: {
+        src: ['test/**/*.js'],
+        options: {
+          boss: true
+        }
+      }
     },
     uglify: {
       options: {
@@ -283,7 +295,7 @@ module.exports = function(grunt) {
       },
       mochaTest: {
         files: ['gruntfile.js', 'src/scripts/jade/helpers/jade_locals.js','test/{jasmine,mocha}/**/*.coffee'],
-        tasks: ['test:spec']
+        tasks: ['test:build']
       }
     },
     connect: {
@@ -291,8 +303,10 @@ module.exports = function(grunt) {
     },
     jasmine: {
       options: {
-        specs: ['test/jasmine/**/*.js'],
-        vendor: ['src/scripts/vendor/*.js']
+        specs: ['test/jasmine/specs/*.js'],
+        vendor: ['src/scripts/vendor/*.js'],
+        template: ['test/jasmine/templates/main.tmpl'],
+        keepRunner: false
       },
       dev: {
         src: ['src/scripts/lib/main.js']
@@ -303,14 +317,14 @@ module.exports = function(grunt) {
     },
     cafemocha: {
       options: {
-        reporter: 'spec',
+        reporter: 'tap',
         growl: true,
         compilers: 'coffee-script'
       },
       test: {
         src: 'test/mocha/spec.js',
         options: {
-          reporter: 'dot'
+          reporter: 'spec'
         }
       }
     }
@@ -336,7 +350,7 @@ module.exports = function(grunt) {
   }
 
   grunt.registerTask('scripts', 'Concatenate and minify Javascript files.', function(){
-    chainTasks(['copy:vendorScripts', 'uglify:main', 'copy:devScripts', 'copy:scripts']);
+    chainTasks(['copy:vendorScripts', 'uglify:main', 'copy:devScripts', 'copy:scripts', 'test:browser']);
   });
 
   grunt.registerTask('styles', 'Compile Stylus to CSS & minify.', function(){
@@ -349,16 +363,31 @@ module.exports = function(grunt) {
       grunt.log.error('Development build; including unminified scripts.');
     }
 
-    chainTasks(['pygmentize','markdown','jade:compile', 'template:prettyJade', 'copy:markup', 'clean:markdown']);
+    chainTasks(['pygmentize','test:build','markdown','jade:compile', 'template:prettyJade', 'copy:markup', 'clean:markdown']);
 
   });
 
-  grunt.registerTask('test', 'Build and run tests.',function(flag){
+  grunt.registerTask('test', 'Build and run tests.',function(flag) {
     grunt.log.subhead('TESTING');
-    var reporter = _.isString(flag) && flag || undefined;
-    if(reporter)
-      grunt.config('cafemocha.test.options.reporter',reporter);
-    chainTasks(['coffee:tests', 'cafemocha:test', 'jasmine']);
+    var target = _.isString(flag) && flag || 'all';
+
+    if(target !== 'build' && target !== 'browser'){
+      target = 'all';
+    }
+
+    var taskList = ['coffee:tests', 'jshint:tests'];
+
+    if(target === 'build' || target === 'all'){
+      taskList.push('jshint:build');
+      taskList.push('cafemocha:test');
+    }
+
+    if(target === 'browser' || target === 'all'){
+      taskList.push('jshint:browser');
+      taskList.push('jasmine');
+    }
+
+    chainTasks(taskList);
   });
 
   function cleanBuild (target){

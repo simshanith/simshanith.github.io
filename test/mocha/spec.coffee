@@ -12,6 +12,11 @@ grunt = null
 gruntInit = ->
 	grunt = require 'grunt'
 	gruntfile   = require '../../gruntfile.js'
+
+	# Suppress internal messages for clean test logs with `verbose` option
+	grunt.option 'verbose', false
+
+	# Initialize config.
 	gruntfile grunt
 	return grunt
 
@@ -123,5 +128,35 @@ describe 'Jade Locals Module', ->
 			grunt.config.restore()
 			grunt.file.read.restore()
 
-		it 'that reads markdown from the Grunt config variable `markdownPath`', ->
-			true.should.be.true
+		it 'that defaults to the Grunt config variable `markdownPath`', ->
+			localsObj.includeMarkdown()
+			should.equal true, grunt.config.calledWith 'markdownPath'
+
+		it 'that requires a filepath before calling `grunt.file.read`', ->
+			localsObj.includeMarkdown()
+			localsObj.includeMarkdown('')
+			localsObj.includeMarkdown(undefined)
+			localsObj.includeMarkdown(null)
+			localsObj.includeMarkdown(false)
+			localsObj.includeMarkdown(true)
+
+			should.equal 0, grunt.file.read.callCount
+
+		it 'that reads markdown when configured', ->
+			grunt.config 'markdownPath', 'README.md'
+			readMe = localsObj.includeMarkdown()
+			readMe.should.be.a 'string'
+			readMe.should.be.ok
+			grunt.file.read.callCount.should.equal 1
+
+		it 'that reads markdown when passed an argument', ->
+			# Assert clean grunt config after last test
+			should.equal '', grunt.config 'markdownPath'
+			readMe = localsObj.includeMarkdown('README.md')
+			readMe.should.be.a 'string'
+			readMe.should.be.ok
+			grunt.file.read.callCount.should.equal 1
+
+			grunt.config 'markdownPath', 'doesn\'t matter'
+			readMe2 = localsObj.includeMarkdown('README.md')
+			readMe2.should.equal readMe

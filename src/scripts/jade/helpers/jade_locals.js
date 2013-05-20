@@ -8,10 +8,30 @@ module.exports = function(grunt) {
 
 	var jadeLocals = {};
 
-	// Expose grunt config & _ to Jade.
-	jadeLocals.grunt = {};
-	jadeLocals.grunt.config = grunt.config;
-	jadeLocals._ = _
+	///////////////////////////////////////////////////////////////////////////////////////
+	// Expose grunt & _ to Jade.
+	//
+	// Done this way because grunt.log / grunt.verbose "or" functionality blows the stack
+	// when attempting to simply `jadeLocals.grunt = grunt`
+	//
+	// Also, I would not advocate getting too complicated in template logic.
+	// Most template scripts should be wrapped up as helper functions here,
+	// rather than calling grunt directly from the template.
+	//
+	// Still, `!= grunt.file.read('relative/to/gruntfile.js')`
+	// provides an awesome way for variable includes with absolute (project) paths,
+	// and `grunt.task.current.name` may be handy.
+	//
+	//
+	// _ + _.str just makes sense.
+	//
+	///////////////////////////////////////////////////////////////////////////////////////
+	var gruntExports = ['config', 'file', 'option', 'template', 'task', 'util'];
+	var gruntLogExports = ['write','writeln','error','errorlns','ok','oklns','subhead','writeflags','debug'];
+	jadeLocals.grunt = _.pick(grunt, gruntExports);
+	jadeLocals.grunt.log = _.pick(grunt.log, gruntLogExports);
+	jadeLocals.grunt.verbose = _.pick(grunt.verbose, gruntLogExports);
+	jadeLocals._ = _;
 
 
 
@@ -41,7 +61,7 @@ module.exports = function(grunt) {
 
 		markdownPath = markdownPath || grunt.config('markdownPath');
 
-		var src  = markdownPath && grunt.file.read(markdownPath),
+		var src  = markdownPath && _.isString(markdownPath) && grunt.file.read(markdownPath),
 			output = src && marked(src);
 
 		return output || '';

@@ -11,6 +11,9 @@
 		var text = $body.hasClass('light') ? light : dark;
 		$button.text(text);
 	}
+
+	window.toggleTheme = toggleTheme;
+
 	function bindButton() {
 		$body.addClass('dark');
 		$button.click(toggleTheme);
