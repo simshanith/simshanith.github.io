@@ -1,9 +1,9 @@
 {
   "name": "simshanith.github.io",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Simshanith GitHub Pages, powered by Node, Grunt, Jade, and Stylus.",
   "scripts": {
-    "start": "grunt connect:site:keepalive",
+    "start": "grunt heroku connect:site:keepalive",
     "test": "grunt test --verbose"
   },
   "author": {
@@ -41,5 +41,9 @@
     "should": "~1.2.2",
     "sinon": "~1.7.2",
     "stylus": "~0.32.1"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
   }
 }

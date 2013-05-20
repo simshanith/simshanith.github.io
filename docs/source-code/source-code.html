@@ -13,6 +13,15 @@
 <span class="nt">block</span> headScripts
   <span class="nt">script</span>(<span class="na">src=</span><span class="s">&#39;/assets/scripts/vendor/modernizr-2.6.2.min.js&#39;</span>)
 
+<span class="nt">block</span> beforeWrapper
+  | 
+
+<span class="nt">block</span> header
+  <span class="nt">include</span> ../../../includes/header
+  <span class="nt">a</span><span class="nc">.github</span>(<span class="na">href=</span><span class="s">&quot;https://github.com/simshanith/simshanith.github.io&quot;</span>)
+    <span class="nt">img</span>(<span class="na">src=</span><span class="s">&quot;https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png&quot;</span><span class="err">,</span>
+        <span class="na">alt=</span><span class="s">&quot;Fork me on GitHub&quot;</span>)
+
 <span class="nt">block</span> mainContent
   <span class="nt">p</span>
     <span class="nt">button</span><span class="nf">#theme</span> Switch to Light
@@ -25,11 +34,6 @@
   <span class="nt">include</span> ../includes/header
   <span class="nd">:markdown</span>
     <span class="nd">## Jade+Stylus+Grunt = amazing.</span>
-
-<span class="nt">block</span> beforeWrapper
-  <span class="nt">a</span><span class="nc">.github</span>(<span class="na">href=</span><span class="s">&quot;https://github.com/simshanith/simshanith.github.io&quot;</span>)
-    <span class="nt">img</span>(<span class="na">src=</span><span class="s">&quot;https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png&quot;</span><span class="err">,</span>
-      <span class="na">alt=</span><span class="s">&quot;Fork me on GitHub&quot;</span>)
 
 <span class="nt">block</span> mainContent
   <span class="nt">p</span>
@@ -82,48 +86,51 @@
 
 <span class="nn">!!! 5</span>
 <span class="c">//if lt IE 7</span>
-    <span class="c">&lt;html class=&quot;no-js lt-ie9 lt-ie8 lt-ie7&quot;&gt;</span>
+  <span class="c">&lt;html class=&quot;no-js lt-ie9 lt-ie8 lt-ie7&quot;&gt;</span>
 <span class="c">//if IE 7</span>
-    <span class="c">&lt;html class=&quot;no-js lt-ie9 lt-ie8&quot;&gt;</span>
+  <span class="c">&lt;html class=&quot;no-js lt-ie9 lt-ie8&quot;&gt;</span>
 <span class="c">//if IE 8</span>
-    <span class="c">&lt;html class=&quot;no-js lt-ie9&quot;&gt;</span>
+  <span class="c">&lt;html class=&quot;no-js lt-ie9&quot;&gt;</span>
 <span class="c">//[if gt IE 8]&gt;&lt;!</span>
 <span class="nt">html</span><span class="nc">.no-js</span>
-    | &lt;!--&lt;![endif]--&gt;
-    <span class="nt">head</span>
-        <span class="nt">meta</span>(<span class="na">charset=</span><span class="s">&#39;utf-8&#39;</span>)
-        <span class="nt">meta</span>(<span class="na">http-equiv=</span><span class="s">&#39;X-UA-Compatible&#39;</span><span class="err">,</span> <span class="na">content=</span><span class="s">&#39;IE=edge,chrome=1&#39;</span>)
-        <span class="nt">title</span> Shane Daniel Github.io
-        <span class="nt">meta</span>(<span class="na">name=</span><span class="s">&#39;description&#39;</span><span class="err">,</span> <span class="na">content=</span><span class="s">&#39;&#39;</span>)
-        <span class="nt">meta</span>(<span class="na">name=</span><span class="s">&#39;keywords&#39;</span><span class="err">,</span> <span class="na">content=</span><span class="s">&#39;&#39;</span>)
-        <span class="nt">meta</span>(<span class="na">name=</span><span class="s">&#39;HandheldFriendly&#39;</span><span class="err">,</span> <span class="na">content=</span><span class="s">&#39;true&#39;</span>)
-        <span class="nt">meta</span>(<span class="na">name=</span><span class="s">&#39;MobileOptimized&#39;</span><span class="err">,</span> <span class="na">content=</span><span class="s">&#39;width&#39;</span>)
-        <span class="nt">meta</span>(<span class="na">name=</span><span class="s">&#39;format-detection&#39;</span><span class="err">,</span> <span class="na">content=</span><span class="s">&#39;telephone=no&#39;</span>)
-        <span class="nt">block</span> stylesheets
-            <span class="nt">link</span>(<span class="na">rel=</span><span class="s">&#39;stylesheet&#39;</span><span class="err">,</span> <span class="na">href=</span><span class="s">&#39;assets/styles/base.css&#39;</span>)
-        <span class="nt">block</span> favicons
-            <span class="nt">link</span>(<span class="na">rel=</span><span class="s">&#39;apple-touch-icon&#39;</span><span class="err">,</span> <span class="na">sizes=</span><span class="s">&#39;144x144&#39;</span><span class="err">,</span> <span class="na">href=</span><span class="s">&#39;assets/images/touch/apple-touch-icon-144x144-precomposed.png&#39;</span>)
-            <span class="nt">link</span>(<span class="na">rel=</span><span class="s">&#39;apple-touch-icon&#39;</span><span class="err">,</span> <span class="na">sizes=</span><span class="s">&#39;114x114&#39;</span><span class="err">,</span> <span class="na">href=</span><span class="s">&#39;assets/images/touch/apple-touch-icon-114x114-precomposed.png&#39;</span>)
-            <span class="nt">link</span>(<span class="na">rel=</span><span class="s">&#39;apple-touch-icon&#39;</span><span class="err">,</span> <span class="na">sizes=</span><span class="s">&#39;72x72&#39;</span><span class="err">,</span> <span class="na">href=</span><span class="s">&#39;assets/images/touch/apple-touch-icon-72x72-precomposed.png&#39;</span>)
-            <span class="nt">link</span>(<span class="na">rel=</span><span class="s">&#39;apple-touch-icon&#39;</span><span class="err">,</span> <span class="na">href=</span><span class="s">&#39;assets/images/touch/apple-touch-icon-57x57-precomposed.png&#39;</span>)
-            <span class="nt">link</span>(<span class="na">rel=</span><span class="s">&#39;shortcut icon&#39;</span><span class="err">,</span> <span class="na">href=</span><span class="s">&#39;assets/images/touch/apple-touch-icon.png&#39;</span>)
-        <span class="nt">meta</span>(<span class="na">name=</span><span class="s">&#39;viewport&#39;</span><span class="err">,</span> <span class="na">content=</span><span class="s">&#39;width=device-width, maximum-scale=1.0, target-densityDpi=320dpi&#39;</span>)
-        <span class="nt">block</span> headScripts
-            <span class="nt">script</span>(<span class="na">src=</span><span class="s">&#39;assets/scripts/vendor/modernizr-2.6.2.min.js&#39;</span>)
-    <span class="nt">body</span>
-        <span class="nt">block</span> beforeWrapper
-        <span class="nf">#wrapper</span>
-            <span class="nt">header</span><span class="nf">#header</span>
-                <span class="nt">block</span> header
-                    <span class="nt">include</span> ../includes/header
-            <span class="nt">section</span><span class="nf">#mainContent</span>
-                <span class="nt">block</span> mainContent
-            <span class="nt">footer</span><span class="nf">#footer</span>
-                <span class="nt">block</span> footer
-                    <span class="nt">include</span> ../includes/footer
-        <span class="nt">block</span> afterWrapper
-        <span class="nt">block</span> endScripts
-            <span class="nt">include</span> ../includes/endScripts
+  | &lt;!--&lt;![endif]--&gt;
+  <span class="nt">head</span>
+    <span class="nt">meta</span>(<span class="na">charset=</span><span class="s">&#39;utf-8&#39;</span>)
+    <span class="nt">meta</span>(<span class="na">http-equiv=</span><span class="s">&#39;X-UA-Compatible&#39;</span><span class="err">,</span> <span class="na">content=</span><span class="s">&#39;IE=edge,chrome=1&#39;</span>)
+    <span class="nt">title</span> Shane Daniel Github.io
+    <span class="nt">meta</span>(<span class="na">name=</span><span class="s">&#39;description&#39;</span><span class="err">,</span> <span class="na">content=</span><span class="s">&#39;&#39;</span>)
+    <span class="nt">meta</span>(<span class="na">name=</span><span class="s">&#39;keywords&#39;</span><span class="err">,</span> <span class="na">content=</span><span class="s">&#39;&#39;</span>)
+    <span class="nt">meta</span>(<span class="na">name=</span><span class="s">&#39;HandheldFriendly&#39;</span><span class="err">,</span> <span class="na">content=</span><span class="s">&#39;true&#39;</span>)
+    <span class="nt">meta</span>(<span class="na">name=</span><span class="s">&#39;MobileOptimized&#39;</span><span class="err">,</span> <span class="na">content=</span><span class="s">&#39;width&#39;</span>)
+    <span class="nt">meta</span>(<span class="na">name=</span><span class="s">&#39;format-detection&#39;</span><span class="err">,</span> <span class="na">content=</span><span class="s">&#39;telephone=no&#39;</span>)
+    <span class="nt">block</span> stylesheets
+      <span class="nt">link</span>(<span class="na">rel=</span><span class="s">&#39;stylesheet&#39;</span><span class="err">,</span> <span class="na">href=</span><span class="s">&#39;assets/styles/base.css&#39;</span>)
+    <span class="nt">block</span> favicons
+      <span class="nt">link</span>(<span class="na">rel=</span><span class="s">&#39;apple-touch-icon&#39;</span><span class="err">,</span> <span class="na">sizes=</span><span class="s">&#39;144x144&#39;</span><span class="err">,</span> <span class="na">href=</span><span class="s">&#39;assets/images/touch/apple-touch-icon-144x144-precomposed.png&#39;</span>)
+      <span class="nt">link</span>(<span class="na">rel=</span><span class="s">&#39;apple-touch-icon&#39;</span><span class="err">,</span> <span class="na">sizes=</span><span class="s">&#39;114x114&#39;</span><span class="err">,</span> <span class="na">href=</span><span class="s">&#39;assets/images/touch/apple-touch-icon-114x114-precomposed.png&#39;</span>)
+      <span class="nt">link</span>(<span class="na">rel=</span><span class="s">&#39;apple-touch-icon&#39;</span><span class="err">,</span> <span class="na">sizes=</span><span class="s">&#39;72x72&#39;</span><span class="err">,</span> <span class="na">href=</span><span class="s">&#39;assets/images/touch/apple-touch-icon-72x72-precomposed.png&#39;</span>)
+      <span class="nt">link</span>(<span class="na">rel=</span><span class="s">&#39;apple-touch-icon&#39;</span><span class="err">,</span> <span class="na">href=</span><span class="s">&#39;assets/images/touch/apple-touch-icon-57x57-precomposed.png&#39;</span>)
+      <span class="nt">link</span>(<span class="na">rel=</span><span class="s">&#39;shortcut icon&#39;</span><span class="err">,</span> <span class="na">href=</span><span class="s">&#39;assets/images/touch/apple-touch-icon.png&#39;</span>)
+    <span class="nt">meta</span>(<span class="na">name=</span><span class="s">&#39;viewport&#39;</span><span class="err">,</span> <span class="na">content=</span><span class="s">&#39;width=device-width, maximum-scale=1.0, target-densityDpi=320dpi&#39;</span>)
+    <span class="nt">block</span> headScripts
+      <span class="nt">script</span>(<span class="na">src=</span><span class="s">&#39;assets/scripts/vendor/modernizr-2.6.2.min.js&#39;</span>)
+  <span class="nt">body</span>
+    <span class="nt">block</span> beforeWrapper
+      <span class="nt">a</span><span class="nc">.github</span>(<span class="na">href=</span><span class="s">&quot;https://github.com/simshanith/simshanith.github.io&quot;</span>)
+        <span class="nt">img</span>(<span class="na">src=</span><span class="s">&quot;https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png&quot;</span><span class="err">,</span>
+            <span class="na">alt=</span><span class="s">&quot;Fork me on GitHub&quot;</span>)
+    <span class="nf">#wrapper</span>
+      <span class="nt">header</span><span class="nf">#header</span>
+        <span class="nt">block</span> header
+          <span class="nt">include</span> ../includes/header
+      <span class="nt">section</span><span class="nf">#mainContent</span>
+        <span class="nt">block</span> mainContent
+      <span class="nt">footer</span><span class="nf">#footer</span>
+        <span class="nt">block</span> footer
+          <span class="nt">include</span> ../includes/footer
+    <span class="nt">block</span> afterWrapper
+    <span class="nt">block</span> endScripts
+      <span class="nt">include</span> ../includes/endScripts
 </pre></div>
 
 <h3><pre><a href="https://github.com/simshanith/simshanith.github.io/tree/master/src/markup/templates/markdown.jade">src/markup/templates/markdown.jade</a></pre></h3><div class="highlight"><pre><span class="nt">extends</span> main

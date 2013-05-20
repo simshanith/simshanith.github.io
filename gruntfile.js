@@ -24,6 +24,8 @@ module.exports = function(grunt) {
   // load stylus plugins
   var stylusPlugins = [require('fluidity'), require('roots-css')];
 
+  var port = process.env.PORT || '?';
+
   grunt.initConfig({
     // Read build info from --dev or --build="build" command line args.
     build: grunt.option('dev') && 'dev' || grunt.option('build') || 'default',
@@ -299,6 +301,9 @@ module.exports = function(grunt) {
       }
     },
     connect: {
+      options: {
+        port: port
+      },
       site: {}
     },
     jasmine: {
@@ -469,6 +474,11 @@ module.exports = function(grunt) {
     });
 
     grunt.task.run(['concat:pygments', 'clean:pygments']);
+  });
+
+  grunt.registerTask('heroku', 'Confirm grunt cli works.', function(){
+    grunt.log.ok('`grunt heroku` called successfully!');
+    grunt.log.writeln(port);
   });
 
 };

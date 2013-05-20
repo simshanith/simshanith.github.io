@@ -28,8 +28,9 @@ This project breaks up source files across the three major divisions of modern W
 * [HTML5 Boilerplate](http://html5boilerplate.com/) inspired template
 * Extensive use of [Jade](http://jade-lang.com)
 * Locals module can provide helpers & is tested
+* Exposes local helpers as [mixins](https://github.com/visionmedia/jade#a14) when possible
 * Can inline JavaScript files configured by build type
 * Works with [Markdown](http://daringfireball.net/projects/markdown/) via [Marked](https://github.com/chjj/marked)
-* Processes HTML generated with [Pygments](http://pygments.org)
+* Generates syntax-highlighted source code as HTML with [Pygments](http://pygments.org), then templates with Jade
 
 This included markdown file lives at [/docs/features.html](/docs/features.html) and [/src/markup/htdocs/docs/features.markdown](https://github.com/simshanith/simshanith.github.io/tree/master/src/markup/htdocs/docs/features.markdown).

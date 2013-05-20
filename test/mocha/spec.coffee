@@ -8,12 +8,14 @@ require 'mocha-sinon'
 # Grunt Setup, modelled off of `mocha-sinon` plugin
 ## Gives fresh instance of grunt config for each test.
 grunt = null
+oldVerbose = null
 
 gruntInit = ->
 	grunt = require 'grunt'
 	gruntfile   = require '../../gruntfile.js'
 
 	# Suppress internal messages for clean test logs with `verbose` option
+	oldVerbose = grunt.option 'verbose'
 	grunt.option 'verbose', false
 
 	# Initialize config.
@@ -26,6 +28,7 @@ beforeEach ->
 
 afterEach ->
 	grunt.event.removeAllListeners()
+	grunt.option 'verbose', oldVerbose
 	grunt = null
 
 # Gruntfile Suite.
