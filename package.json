@@ -13,6 +13,9 @@
   },
   "license": "MIT",
   "readmeFilename": "README.md",
+  "dependencies": {
+    "grunt-cli": "~0.1.8"
+  },
   "devDependencies": {
     "fluidity": "~0.1.5",
     "grunt": "~0.4.1",
