@@ -26,7 +26,7 @@
       </header>
       <section id="mainContent">
         <p>
-          <button id="theme">Switch to Light</button> <h4>Currently Supported Features</h4>
+          <button id="theme">Switch to Light </button> <h4>Currently Supported Features</h4>
 <p>This project breaks up source files across the three major divisions of modern Web development:</p>
 <ul>
 <li>Scripts,</li>
@@ -67,7 +67,7 @@
       <footer id="footer"><h6>Copyright &copy; 2013 Shane Daniel</h6>
 
       </footer>
-    </div><script type="text/javascript">
+    </div> <script type="text/javascript">
 ////////////////////////////////////////////////////////////////////////////////
 //
 // ## Grunt Build Notes
@@ -95,6 +95,7 @@
 // Loads site payload. Logs complete message.
 //
 ////////////////////////////////////////////////////////////////////////////////
+window.yepnope.complete = yepnope.complete || function (){};
 
 yepnope([{
     // ### jQuery
@@ -110,6 +111,7 @@ yepnope([{
     load: ['/assets/scripts/main.min.js'],
     complete: function() {
       window.console && console.log && console.log('All scripts loaded.');
+      yepnope.complete();
     }
   }]);
 </script> 

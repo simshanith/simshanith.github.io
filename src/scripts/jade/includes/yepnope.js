@@ -25,6 +25,7 @@
 // Loads site payload. Logs complete message.
 //
 ////////////////////////////////////////////////////////////////////////////////
+window.yepnope.complete = yepnope.complete || function (){};
 
 yepnope([{
     // ### jQuery
@@ -40,5 +41,6 @@ yepnope([{
     load: ['/assets/scripts/main.min.js'],
     complete: function() {
       window.console && console.log && console.log('All scripts loaded.');
+      yepnope.complete();
     }
   }]);

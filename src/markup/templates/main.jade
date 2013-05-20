@@ -1,3 +1,5 @@
+include ../includes/mixins
+
 !!! 5
 //if lt IE 7
     <html class="no-js lt-ie9 lt-ie8 lt-ie7">
@@ -29,6 +31,7 @@ html.no-js
         block headScripts
             script(src='assets/scripts/vendor/modernizr-2.6.2.min.js')
     body
+        block beforeWrapper
         #wrapper
             header#header
                 block header
@@ -38,5 +41,6 @@ html.no-js
             footer#footer
                 block footer
                     include ../includes/footer
+        block afterWrapper
         block endScripts
             include ../includes/endScripts
