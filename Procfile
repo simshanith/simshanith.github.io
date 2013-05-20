@@ -1,1 +1,1 @@
-web: npm start
+web: grunt --verbose heroku connect:site:keepalive
