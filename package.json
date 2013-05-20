@@ -3,7 +3,7 @@
   "version": "0.4.2",
   "description": "Simshanith GitHub Pages, powered by Node, Grunt, Jade, and Stylus.",
   "scripts": {
-    "start": "grunt heroku connect:site:keepalive",
+    "start": "grunt --verbose heroku connect:site:keepalive",
     "test": "grunt test --verbose"
   },
   "author": {
