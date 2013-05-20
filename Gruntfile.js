@@ -24,7 +24,7 @@ module.exports = function(grunt) {
   // load stylus plugins
   var stylusPlugins = [require('fluidity'), require('roots-css')];
 
-  var port = process.env.PORT || '?';
+  var port = process.env.PORT || 0;
 
   grunt.initConfig({
     // Read build info from --dev or --build="build" command line args.
