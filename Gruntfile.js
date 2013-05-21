@@ -302,7 +302,8 @@ module.exports = function(grunt) {
     },
     connect: {
       options: {
-        port: port
+        port: port,
+        host: '0.0.0.0'
       },
       site: {}
     },

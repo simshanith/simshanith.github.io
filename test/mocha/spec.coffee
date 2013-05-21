@@ -12,7 +12,7 @@ oldVerbose = null
 
 gruntInit = ->
 	grunt = require 'grunt'
-	gruntfile   = require '../../gruntfile.js'
+	gruntfile   = require '../../Gruntfile.js'
 
 	# Suppress internal messages for clean test logs with `verbose` option
 	oldVerbose = grunt.option 'verbose'
