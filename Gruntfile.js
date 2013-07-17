@@ -396,7 +396,7 @@ module.exports = function(grunt) {
 
     if(target === 'browser' || target === 'all'){
       taskList.push('jshint:browser');
-      taskList.push('jasmine:compiled');
+      taskList.push('jasmine:dev');
     }
 
     chainTasks(taskList);
