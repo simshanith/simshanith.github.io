@@ -1,13 +1,35 @@
 describe 'jQuery', ->
-  
+
   it 'should be loaded', ->
-    expect(window.jQuery).toBeTruthy()
+  	
+  	waitsFor ->
+  		yepnope.COMPLETED || (window.jQuery && !window.yepnope.complete)
+  	, "yepnope never completed", 10000
+
+  	runs ->
+    	expect(window.jQuery).toBeTruthy()
 
 describe 'body', ->
 
+  beforeEach ->
+    if yepnope.complete
+      spyOn yepnope, 'complete'
+
   it 'should be dark', ->
-    expect($('body.dark').length).toBeTruthy()
+
+    waitsFor ->
+      yepnope.COMPLETED || (window.jQuery && !window.yepnope.complete)
+    , "yepnope never completed", 10000
+
+    runs ->
+      expect($('body.dark').length).toBeTruthy()
 
   it 'should be light after toggle', ->
-    window.toggleTheme()
-    expect($('body.light').length).toBeTruthy()
+
+    waitsFor ->
+      yepnope.COMPLETED || (window.jQuery && !window.yepnope.complete)
+    , "yepnope never completed", 10000
+    
+    runs ->
+      window.toggleTheme()
+      expect($('body.light').length).toBeTruthy()

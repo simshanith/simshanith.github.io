@@ -171,14 +171,13 @@
             window.yepnope.complete = yepnope.complete || function () {};
             
             yepnope([
-                {
-                    // ### jQuery
-                    test: window.navigator && navigator.onLine || !window.navigator,
+                { // ### jQuery (CDN)
+                    test: !window.jQuery && window.navigator && navigator.onLine,
                     yep: '//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js',
                     complete: function () {
-                        yepnope({
-                            test: window.jQuery,
-                            nope: '/assets/scripts/vendor/jquery.min.js'
+                        yepnope({ // ### jQuery (local fallback)
+                            test: !window.jQuery,
+                            yep: '/assets/scripts/vendor/jquery.min.js'
                         });
                     }
                 }, { // ## Main Script

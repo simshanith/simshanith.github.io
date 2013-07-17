@@ -24,7 +24,7 @@ module.exports = function(grunt) {
   // load stylus plugins
   var stylusPlugins = [require('fluidity'), require('roots-css')];
 
-  var port = process.env.PORT || 0;
+  var port = process.env.PORT || 31337;
 
   grunt.initConfig({
     // Read build info from --dev or --build="build" command line args.
@@ -309,13 +309,19 @@ module.exports = function(grunt) {
     },
     jasmine: {
       options: {
+        '--local-to-remote-url-access' : true,
         specs: ['test/jasmine/specs/*.js'],
         vendor: ['src/scripts/vendor/*.js'],
         template: ['test/jasmine/templates/main.tmpl'],
         keepRunner: false
       },
       dev: {
-        src: ['src/scripts/lib/main.js']
+        options: {
+          '--local-to-remote-url-access' : 'true',
+          host: 'localhost:'+port,
+          vendor: ['assets/scripts/vendor/modernizr-2.6.2.min.js']
+        },
+        src: ['src/scripts/jade/includes/yepnope.dev.js']
       },
       compiled: {
         src: ['assets/scripts/main.min.js']
@@ -390,7 +396,7 @@ module.exports = function(grunt) {
 
     if(target === 'browser' || target === 'all'){
       taskList.push('jshint:browser');
-      taskList.push('jasmine');
+      taskList.push('jasmine:compiled');
     }
 
     chainTasks(taskList);
@@ -426,10 +432,10 @@ module.exports = function(grunt) {
 
 
   grunt.registerTask('markdown', 'Generate HTML from Markdown source', function(){
-    var sourceFiles = ['**/*.markdown'],
-        expandOpts  = {cwd: 'src/', flatten: false, ext: '.marked.html'},
-        targetDir   = 'docs/',
-        fileMatches = grunt.file.expandMapping(sourceFiles, targetDir, expandOpts);
+    var sourceFiles = ['**/*.markdown'];
+    var expandOpts  = {cwd: 'src/', flatten: false, ext: '.marked.html'};
+    var targetDir   = 'docs/';
+    var fileMatches = grunt.file.expandMapping(sourceFiles, targetDir, expandOpts);
 
     grunt.log.subhead('Found '+fileMatches.length+' source files to compile.');
 
@@ -458,10 +464,10 @@ module.exports = function(grunt) {
 
   grunt.registerTask('pygmentize', 'Generate HTML of syntax-highlighted source code.', function() {
 
-    var expandOpts  = {cwd: 'src/', flatten: false, rename: pygRename},
-        sourceFiles = ['{markup,scripts}/**/*.{jade,js}', '!**/vendor/*', '!markup/**/*.js'],
-        targetDir   = 'build/source-code/',
-        fileMatches = grunt.file.expandMapping(sourceFiles, targetDir, expandOpts);
+    var expandOpts  = {cwd: 'src/', flatten: false, rename: pygRename};
+    var sourceFiles = ['{markup,scripts}/**/*.{jade,js}', '!**/vendor/*', '!markup/**/*.js'];
+    var targetDir   = 'build/source-code/';
+    var fileMatches = grunt.file.expandMapping(sourceFiles, targetDir, expandOpts);
 
     function pygRename(dest, matchedSrcPath, options) {
       return dest + matchedSrcPath + '.html';
@@ -475,12 +481,6 @@ module.exports = function(grunt) {
     });
 
     grunt.task.run(['concat:pygments', 'clean:pygments']);
-  });
-
-  grunt.registerTask('heroku', 'Confirm grunt cli works.', function(){
-    grunt.log.ok('`grunt heroku` called successfully!');
-    grunt.log.subhead('process.env.PORT: '+process.env.PORT);
-    grunt.log.writeln(port);
   });
 
 };

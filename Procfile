@@ -1,1 +1,0 @@
-web: echo $PORT && grunt --verbose heroku connect:site:keepalive
