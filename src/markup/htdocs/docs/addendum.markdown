@@ -15,7 +15,7 @@ Also, now up & running, is a test suite for the build processes. [Mocha](http://
 
 The tests are written in [CoffeeScript](http://coffeescript.org) for gorgeous syntax and legibility, then compiled side by side to JavaScript. The results of these tests are publicly available on [Travis.CI](http://travis-ci.org/simshanith/simshanith.github.io). The build status is now:
 
-[![Build Status](https://travis-ci.org/simshanith/simshanith.github.io.png)](https://travis-ci.org/simshanith/simshanith.github.io)
+[![Build Status](https://travis-ci.org/simshanith/simshanith.github.io.png?branch=master)](https://travis-ci.org/simshanith/simshanith.github.io?branch=master)
 
 It'd be nice to get [Jasmine](http://pivotal.github.io/jasmine/) going for client-side code coverage.
 
