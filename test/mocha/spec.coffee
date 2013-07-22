@@ -108,7 +108,7 @@ describe 'Jade Locals Module', ->
 		#### ...but Jade `include` cannot handle variables, so this is a bonus.
 		it 'that looks up different files based on grunt `build` config', ->
 			name = 'yepnope'
-			
+			grunt.config 'build', 'default'
 			htmlProd = localsObj.includeJs name
 			grunt.config 'build', 'dev'
 			htmlDev = localsObj.includeJs name
